@@ -1,0 +1,134 @@
+{
+  "passed": true,
+  "tests": {
+    "passed": 14,
+    "scope": "versioned setup contracts, reference topology, asset import/export, conflict detection"
+  },
+  "assets": {
+    "setup": "hexprism40_omniwrist_fullpose_v1",
+    "root": "<POISE_ROOT>",
+    "valid": true,
+    "files": 40,
+    "missing": [],
+    "changed": [],
+    "with_reference": true,
+    "cache_rows": {
+      "regular_hex_prism_af40mm_h40mm_chamfered": 6842
+    },
+    "checkpoint": {
+      "sha256": "015cce3ad9dfdb5c76fa270ac1c328812cac6463bd7965425bc896331f2102cf",
+      "reference": true,
+      "iteration": 35800,
+      "setup": "hexprism40_omniwrist_fullpose_v1"
+    }
+  },
+  "bundle": {
+    "setup": "hexprism40_omniwrist_fullpose_v1",
+    "archive": "<POISE_ROOT>/outputs/private_bundles/hexprism40_omniwrist_fullpose_v1.tar.gz",
+    "sha256": "f7cf0688fdad28a688343659adefe568ddf3d58fb9c08cd56314230909bc5acf",
+    "files": 40,
+    "bytes": 16649296,
+    "published": false
+  },
+  "isolated_asset_import": true,
+  "reference_rollout": {
+    "steps": 64,
+    "num_envs": 4,
+    "terminations": 0,
+    "mean_reward": 0.24876844995014835,
+    "setup": {
+      "schema_version": 1,
+      "id": "hexprism40_omniwrist_fullpose_v1",
+      "recipe_sha256": "f1065f0ce16fb41175c102cf92996f24867a9081f64d41fe046d8073e103ba25",
+      "ppo_sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef",
+      "assets_manifest_sha256": "4d5512fd2d342547c95e6d5877a8ec4776c75671c6cdfae9a28eef60f034713b",
+      "object_ids": [
+        "regular_hex_prism_af40mm_h40mm_chamfered"
+      ]
+    },
+    "checkpoint": {
+      "sha256": "015cce3ad9dfdb5c76fa270ac1c328812cac6463bd7965425bc896331f2102cf",
+      "reference": true,
+      "iteration": 35800,
+      "setup": "hexprism40_omniwrist_fullpose_v1"
+    },
+    "purpose": "Qualitative continuous-target rollout; not the archived first-target benchmark",
+    "object_ids": [
+      "regular_hex_prism_af40mm_h40mm_chamfered"
+    ]
+  },
+  "training_smoke": {
+    "num_envs": 8,
+    "envs_per_rank": 8,
+    "world_size": 1,
+    "iterations_this_run": 2,
+    "transitions_this_run": 128,
+    "completed_iterations": 2,
+    "checkpoint": "<POISE_ROOT>/outputs/verification/omniwrist_baseline_20260928/train_smoke/model_1.pt",
+    "torch": "2.7.0+cu128",
+    "gpu": "NVIDIA GeForce RTX 4090",
+    "research_imports": false,
+    "export": {
+      "input_dim": 244,
+      "output_dim": 22,
+      "activation": "elu",
+      "linear_layer_shapes": [
+        [
+          244,
+          512
+        ],
+        [
+          512,
+          256
+        ],
+        [
+          256,
+          128
+        ],
+        [
+          128,
+          22
+        ]
+      ],
+      "normalizer_eps": 0.01,
+      "normalizer_count": 128,
+      "observation_mean_min": -0.4107341468334198,
+      "observation_mean_max": 0.9765624403953552,
+      "observation_std_min": 0.0,
+      "observation_std_max": 3.398098945617676,
+      "checkpoint_iteration": 1,
+      "torchscript_eager_max_abs_error": 0.0
+    }
+  },
+  "smoke_setup_identity_verified": true,
+  "reference_scale_command": [
+    "<LOCAL_PATH>",
+    "-m",
+    "torch.distributed.run",
+    "--standalone",
+    "--nnodes=1",
+    "--nproc_per_node=8",
+    "<POISE_ROOT>/scripts/train.py",
+    "--setup",
+    "hexprism40_omniwrist_fullpose_v1",
+    "--num-envs",
+    "24000",
+    "--iterations",
+    "150000",
+    "--seed",
+    "42",
+    "--headless",
+    "--distributed",
+    "--physical-gpus",
+    "4",
+    "--backend",
+    "gloo",
+    "--device",
+    "cuda:0",
+    "--output",
+    "<POISE_ROOT>/outputs/train/omniwrist_reference"
+  ],
+  "reference_scale_executed": false,
+  "validation_scope": "Local single-GPU integration; existing reference trained at 4 A800 / 192k; no new full-scale training or quantitative evaluation",
+  "private": true
+}

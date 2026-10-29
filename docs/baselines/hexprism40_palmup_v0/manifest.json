@@ -1,0 +1,219 @@
+{
+  "baseline_id": "hexprism40_palmup_v0",
+  "status": "provisional",
+  "designated_on": "2026-09-17",
+  "description": "User-designated baseline for subsequent POISE development and training comparisons.",
+  "training_code_commit": "248111365d538cc686a08ce2b3e27cfc76f0df71",
+  "training_run": "hexprism40_fixedpalmup_2x4090d_32000pergpu_paper_gf20k_std030_s42_20260915",
+  "training_status": "stopped_by_user",
+  "stopped_utc": "2026-09-17T13:30:14.167862+00:00",
+  "from_scratch": true,
+  "checkpoint": {
+    "path": "outputs/training/hexprism40_fixedpalmup_2x4090d_32000pergpu_paper_gf20k_std030_s42_20260915/model_31200.pt",
+    "sha256": "f801420829d6d92a31c7cf0a634a7d893e8211b89dcaac744d46be00591da87c",
+    "iteration_index": 31200,
+    "completed_updates": 31201,
+    "transitions": 15974912000,
+    "selection": "last complete saved checkpoint when user stopped training; not selected as best"
+  },
+  "launch": {
+    "launcher": "scripts/train_4090d.sh",
+    "physical_gpus": 2,
+    "gpu_model": "RTX 4090 D",
+    "envs_per_rank": 32000,
+    "total_envs": 64000,
+    "rank_seeds": [
+      42,
+      43
+    ],
+    "backend": "gloo",
+    "planned_updates": 150000,
+    "rollout_steps": 8,
+    "save_interval": 100,
+    "global_frontier_min_completed_events": 20000,
+    "effective_action_std_bounds": [
+      0.3,
+      1.5
+    ]
+  },
+  "snapshots": {
+    "env.json": "49abfc469333c619ade7bf301e5c8fbd9a5b94fd80420b1970ad7019e335695e",
+    "agent.json": "20e139ab862e28c0fc2e9765f30bf36ccc40d7b70e5dff3782ccb0b86db0df29",
+    "topology.json": "61739a41344715fb9034c902c0421d77b952fcd2071b40c6efbbd7e4bcf7811a"
+  },
+  "source_config_sha256": {
+    "env.json": "0f406b5220451f814966e0c4e87599190f6ce91ba0b3e5c87bc8db6b3bd90571",
+    "agent.json": "20e139ab862e28c0fc2e9765f30bf36ccc40d7b70e5dff3782ccb0b86db0df29",
+    "topology.json": "61739a41344715fb9034c902c0421d77b952fcd2071b40c6efbbd7e4bcf7811a",
+    "rank_1/env.json": "030d1f1172b1682057a96c08e77b656fed0e8118b743aeaf04c6fe639714a0b3",
+    "rank_1/agent.json": "0d3cfd2c5bcd95262aec5c0e06adde463b23eb3410305f718a93df623f91d94d",
+    "rank_1/topology.json": "220adcb2cf5298480140c98a8e70db6f2618b52f1071b646ff1f17958364ee40"
+  },
+  "env_snapshot_changes": {
+    "robot_cfg.spawn.usd_path": "Replaced source checkout prefix with repository-relative public asset path.",
+    "log_dir": "Set to null; output is selected at launch."
+  },
+  "training_source_sha256": {
+    "source/poise/sim/env.py": "4b8103d22d4e101c445d66cef9f7693ea00066674a99e24019eaf818a11b9f6e",
+    "source/poise/sim/pose_success.py": "c37866fdcbf84a9a56a1cf06e62027ab2468dd18cb24d17536c7a88af43f81eb",
+    "source/poise/sim/recipes/hexprism40.json": "3775aaf4d15b3849389a86d16d4bf54aa40f16a9a14b219634c3409a87c0cb96",
+    "source/poise/sim/recipes/ppo.json": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef",
+    "source/poise/training/runner.py": "46f7579651d4d6d0340a266a230a26dc92fba0727397c98cd4d6153495b5bbae",
+    "source/poise/training/ppo.py": "65af14916cdba0ada09d4d795ce5c8c353ffc1f95181dd1daed3293e87dfd952",
+    "source/poise/training/distributed.py": "22adcb567d7163b5fd0e04c3b00c90f8936e79fe4114de1546547c7bb0969f71",
+    "scripts/train.py": "b2bff07c037a735bdc939f889b8ee15ead024749ce43a138ef73dfa24b7819b7",
+    "scripts/train_4090d.sh": "8c3d97ff66aa481db69b063f32cdf2333b6c13b6459be1f0649b9ef89a6ea105"
+  },
+  "eval_contract": {
+    "rows": 6842,
+    "parents": 486,
+    "workspace_rows": 5696,
+    "first_target_pairing": "exact across all models and historical bank",
+    "horizon_policy_steps": 400,
+    "dwell_policy_steps": 20,
+    "policy_hz": 20,
+    "eval_dr_disabled": true,
+    "scope": "same generation-0 targets; subsequent targets are not paired",
+    "bootstrap_samples": 10000,
+    "bootstrap_seed": 20260917,
+    "closeness_margin_pp": 5,
+    "limits": "one target per training-cache row; not held-out grasps, full-DR robustness, or real-world deployment"
+  },
+  "evaluation": {
+    "legacy_components": {
+      "baseline": {
+        "successes": 4698,
+        "rows": 6842,
+        "success_pct": 68.66413329435838,
+        "workspace_success_pct": 68.25842696629213,
+        "drop_pct": 4.998538439052909,
+        "mean_targets": 2.2608886290558314,
+        "mean_success_latency_s": 5.549872286079183,
+        "median_success_latency_s": 4.7,
+        "paired_initial_state_and_target_exact": true
+      },
+      "historical_latest33200": {
+        "successes": 4665,
+        "rows": 6842,
+        "success_pct": 68.18181818181817,
+        "workspace_success_pct": 68.13553370786516,
+        "drop_pct": 7.234726688102894,
+        "mean_targets": 2.1924875767319496,
+        "mean_success_latency_s": 5.616559485530547,
+        "median_success_latency_s": 4.5,
+        "paired_initial_state_and_target_exact": true
+      },
+      "baseline_vs_historical_latest33200": {
+        "rows": 6842,
+        "difference_pp": 0.482315112540193,
+        "row_bootstrap_95ci_pp": [
+          -0.6577024261911721,
+          1.6226980415083259
+        ],
+        "parent_cluster_bootstrap_95ci_pp": [
+          -0.879802465851156,
+          1.8235064655530302
+        ],
+        "mcnemar_exact_p": 0.4312495441006419,
+        "both_success": 3855,
+        "reference_only": 810,
+        "current_only": 843,
+        "neither": 1334,
+        "within_5pp_point_estimate": true,
+        "within_5pp_parent95ci": true,
+        "workspace": {
+          "rows": 5696,
+          "difference_pp": 0.12289325842696629,
+          "row_bootstrap_95ci_pp": [
+            -1.1762640449438202,
+            1.4224894662921284
+          ],
+          "parent_cluster_bootstrap_95ci_pp": [
+            -1.4010583409896253,
+            1.6164034132709968
+          ],
+          "mcnemar_exact_p": 0.8747615758634323,
+          "both_success": 3160,
+          "reference_only": 721,
+          "current_only": 728,
+          "neither": 1087,
+          "within_5pp_point_estimate": true,
+          "within_5pp_parent95ci": true
+        }
+      }
+    },
+    "full_pose": {
+      "baseline": {
+        "successes": 4369,
+        "rows": 6842,
+        "success_pct": 63.85559777842737,
+        "workspace_success_pct": 63.41292134831461,
+        "drop_pct": 4.779304296989184,
+        "mean_targets": 1.9203449283835137,
+        "mean_success_latency_s": 5.8239871824216065,
+        "median_success_latency_s": 4.8500000000000005,
+        "paired_initial_state_and_target_exact": true
+      },
+      "historical_latest33200": {
+        "successes": 4345,
+        "rows": 6842,
+        "success_pct": 63.5048231511254,
+        "workspace_success_pct": 63.43047752808989,
+        "drop_pct": 6.518561824028062,
+        "mean_targets": 1.8402513884828997,
+        "mean_success_latency_s": 5.71379746835443,
+        "median_success_latency_s": 4.7,
+        "paired_initial_state_and_target_exact": true
+      },
+      "baseline_vs_historical_latest33200": {
+        "rows": 6842,
+        "difference_pp": 0.35077462730195846,
+        "row_bootstrap_95ci_pp": [
+          -0.8330897398421515,
+          1.5492546039169834
+        ],
+        "parent_cluster_bootstrap_95ci_pp": [
+          -1.0004557249882025,
+          1.711649437908007
+        ],
+        "mcnemar_exact_p": 0.5796357007702894,
+        "both_success": 3495,
+        "reference_only": 850,
+        "current_only": 874,
+        "neither": 1623,
+        "within_5pp_point_estimate": true,
+        "within_5pp_parent95ci": true,
+        "workspace": {
+          "rows": 5696,
+          "difference_pp": -0.0175561797752809,
+          "row_bootstrap_95ci_pp": [
+            -1.3693820224719102,
+            1.3518258426966292
+          ],
+          "parent_cluster_bootstrap_95ci_pp": [
+            -1.5453983382888266,
+            1.4778818248555778
+          ],
+          "mcnemar_exact_p": 1.0,
+          "both_success": 2871,
+          "reference_only": 742,
+          "current_only": 741,
+          "neither": 1342,
+          "within_5pp_point_estimate": true,
+          "within_5pp_parent95ci": true
+        }
+      }
+    }
+  },
+  "evaluation_artifacts": "outputs/evaluation/poise_comparison_20260917",
+  "policy": "Use this baseline as the reference for future changes; record deviations and create a new version when replacing it. Keep v0 snapshots unchanged.",
+  "local_asset_sha256": {
+    "data/geometry_latents/sharpa_hexprism40_bps64_mesh_data_64_v1.pt": "8aadb99540dabefc67eacd41f90cf9c02d8825ac85f46ab0f0ed1add955055ff",
+    "data/hand_fields/sharpa_wave14_hb1/right_hand_C_MC_collision_sdf_2mm.npz": "f47fe1cd078bd97bba6f642a7b32a95a8fbe16600b387ca0d82fb9de71831bc9",
+    "data/local_assets.json": "f748275e3b0b98ca07323013a27e91d56d0c53f20ca3258df73f5f73ca0b7beb",
+    "data/robots/sharpa_wave/provenance.json": "5c89b98f4d4d1fb32efba744ae7f2fa65b0f5df495d9aa8e0ea246c051e13a8e",
+    "data/robots/sharpa_wave/right_sharpa_wave.usda": "043bce67fd6b059bd2290b40667ad3b161b4b7f2a76eebf86b5fd757838552b7",
+    "data/stable_grasps/sharpa_manual_hex_prisms/usda09/regular_hex_prism_af40mm_h40mm_chamfered_hb1wave14_usda09_lightning711_variants10to20_palmup_omniwrist8_hold2s_training.pt": "372690436d6a4ca88e457223aaeba89be34c325b7b0a5c8231f604d3c77fdd90"
+  },
+  "evidence_redacted_for_release": true
+}

@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "setup_id": "hexhammer_palmup_fullpose_192k_v1",
+  "distribution": {
+    "status": "private_staging",
+    "release_index": "manifests/releases/v0.1.0-rc1.json",
+    "release_index_sha256": "c615adf3c1a8c4a343e0c67c92edeff6efb9df77004c012dd7a02ec04c6d5f40"
+  },
+  "files": [
+    {
+      "path": "data/robots/sharpa_wave/LICENSE.txt",
+      "sha256": "f6a348fca3d77ddf60e66a3288b060e09b12afdebeabc6fc490b272ecfa10e43",
+      "bytes": 556,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/upstream.usda",
+      "sha256": "15a82ffb10f6e7bd60410a1d07bdfef76ab95160ea599f5b6f82ed3d5364fe3e",
+      "bytes": 28136,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/right_sharpa_wave.urdf",
+      "sha256": "7a9ab7f824482d23765b2da40b7e96fc605e7e70eda4615a5ca51fea88afb845",
+      "bytes": 34545,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/right_sharpa_wave/configuration/right_sharpa_wave_base.usd",
+      "sha256": "fce9be0cbf9983c3972b1abbbf875007a0507d78150cad9d871febd7c19be14e",
+      "bytes": 9013902,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/right_sharpa_wave/configuration/right_sharpa_wave_physics.usd",
+      "sha256": "b79d9eed40fc5c92b3a1a7d95dc2c11b33a30d1204ed65945ff24ca95b8e5296",
+      "bytes": 9204,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/right_sharpa_wave/configuration/right_sharpa_wave_sensor.usd",
+      "sha256": "86636e59b54a62d4a7ab4afbcedd87baa6ee0f2c4b9a46d8a05c777a85cdb76e",
+      "bytes": 657,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/right_sharpa_wave/configuration/right_sharpa_wave_robot.usd",
+      "sha256": "56e21a118f70c881c8c002ff65ab634994ba68e24e37bb18b3ef7d5fc38d99d4",
+      "bytes": 2682,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/DP_HB1_4F.STL",
+      "sha256": "b28a529aadb4a084912f3697b117ba43fd13c6f3136e48166b5dd1616d9f3eef",
+      "bytes": 191684,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/DP_HB1_TH.STL",
+      "sha256": "df2dcfc770ecf81e893a65d28994ff608556156f4e9a0b447086ab6de485cd75",
+      "bytes": 189684,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/DP_Visual_HB1_TH.STL",
+      "sha256": "db4e895306f51b7cc369b01b705d276b6d69c773033d7e01c8bafbf2d1ecd7e8",
+      "bytes": 336184,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/DP_visual_HB1_4F.STL",
+      "sha256": "5123fd1776cfc82895f9f0b6ba4098522baaad9ebaaa3110ff1246775cfbd737",
+      "bytes": 398784,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/MCP_VL.STL",
+      "sha256": "350f66d656fef760a7f4f0c4a026951e9d831ca65a9c5e4e34825b694ed6b11a",
+      "bytes": 75184,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/elastomer_HB1_4F.STL",
+      "sha256": "88b214c5c614b4b5f0c7cf195a90825b41e20745b1b65442854b371ff065e858",
+      "bytes": 149884,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/elastomer_HB1_TH.STL",
+      "sha256": "437f363ca7a40b6e9b9152ebb81db249c51de71565cdb44b7df6e2cdf0da3312",
+      "bytes": 211384,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_MCP_VL_visual.STL",
+      "sha256": "ec48548aaafa6589112e9b609ed58f1b5e7ec0157ca15e0e4e8c93bff706a9d0",
+      "bytes": 322584,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_MP.STL",
+      "sha256": "98ad7e6e990f61857d6ad28860bba7e0dcba78761a513d60fdc527e9d56bbe8e",
+      "bytes": 37084,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_MP_visual.STL",
+      "sha256": "af867d754ae0f3d5c38610f72cf4699789c82bb0391c2a406e6924f76e850ec6",
+      "bytes": 369384,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_PP.STL",
+      "sha256": "ed975b59e2569759ff28a397dab71d84667161d3b90b41d625bc5e1f5ac6536c",
+      "bytes": 81784,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_PP_visual.STL",
+      "sha256": "aa8b0ac6b6a7769033daa149416035712b23b79af0a7ddeb83d62142f8ff8a14",
+      "bytes": 560734,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_hand_C_MC.STL",
+      "sha256": "8c52941db271e9331f0b32ec581c078af7f8cb372fb97f021d5b1dec2d2426ae",
+      "bytes": 174184,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_hand_C_MC_visual.STL",
+      "sha256": "9234e513974246de38de76ce5f2a48078ebb014e890083219e2bd93caef55b60",
+      "bytes": 692184,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_pinky_MC.STL",
+      "sha256": "1f8207aff0f2f6ca2f1de1a8bbbbcd4183300bc3778d55821c2aae9b490b7dd3",
+      "bytes": 41884,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_pinky_MC_visual.STL",
+      "sha256": "5ae38bab4f573bd147e5a5e231eb399e2396575884cd36e574235258a048e53b",
+      "bytes": 218284,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_thumb_CMC_VL_visual.STL",
+      "sha256": "ebaf499965a51e4b539b7ec5481efbddaf2003b69d0e5e72425a430cecd187b0",
+      "bytes": 317984,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_thumb_MC.STL",
+      "sha256": "deb6d97eb2d7223d72c23ebb32f874644dcf78848389f14dcabe3016aae5dd6c",
+      "bytes": 149584,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_thumb_MCP_VL_visual.STL",
+      "sha256": "30d656738130093b7023100c73fac065a173aaba2e4314034c050c984005d634",
+      "bytes": 300784,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_thumb_MC_visual.STL",
+      "sha256": "81f4bf8c39117b7bf7a4f0fdeb577948056139a84927adc55e9b049434a41a3b",
+      "bytes": 625334,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_thumb_PP.STL",
+      "sha256": "795b35f943c4272314d5e72497aaea2ef998458b0259a6609577d3694aeff869",
+      "bytes": 85884,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/meshes/right_thumb_PP_visual.STL",
+      "sha256": "1024905f9af3ad14160ce55d2e1d98fb7028274f7b267bee8b057754eb165faa",
+      "bytes": 719834,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/right_sharpa_wave.usda",
+      "sha256": "043bce67fd6b059bd2290b40667ad3b161b4b7f2a76eebf86b5fd757838552b7",
+      "bytes": 246,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/poise_collision.usda",
+      "sha256": "9c3345baf5358f0bb836e12419cf6508c0e0e37717fbb0d43b0fb1c3b33584fa",
+      "bytes": 3110,
+      "role": "hand"
+    },
+    {
+      "path": "data/robots/sharpa_wave/provenance.json",
+      "sha256": "5c89b98f4d4d1fb32efba744ae7f2fa65b0f5df495d9aa8e0ea246c051e13a8e",
+      "bytes": 3582,
+      "role": "hand_provenance"
+    },
+    {
+      "path": "data/stable_grasps/sharpa_hex_prism_hammer/usda09/hex_prism_hammer_chamfered_hb1wave14_usda09_lightning3441_variants10_palmup_omniwrist8_hold2s_training.pt",
+      "sha256": "6a420fe0c5aa9df41c83eb5c2e3407610e347cb99c63b06c78051ef29c3b31de",
+      "bytes": 6388301,
+      "role": "asset"
+    },
+    {
+      "path": "data/geometry_latents/sharpa_hex_prism_hammer_chamfered_bps64_mesh_data_64_v1.pt",
+      "sha256": "ad72df984748c16dd852ffc6cf25ca5565370ff445b95a1c463d20bd31ed13df",
+      "bytes": 6297453,
+      "role": "asset"
+    },
+    {
+      "path": "data/objects/sharpa_hex_prism_hammer/t_shape_hex_prism_hammer_chamfered/manifest.json",
+      "sha256": "bc15af394f4d1fec3e7ae50bb9d27d1d9743f325baf5994f6fee8f5e0292dcd5",
+      "bytes": 2251,
+      "role": "object_metadata"
+    },
+    {
+      "path": "data/objects/sharpa_hex_prism_hammer/t_shape_hex_prism_hammer_chamfered/t_shape_hex_prism_hammer_chamfered.collision_handle.obj",
+      "sha256": "7c7e2c382754b8de591fb9b78eaef3dc4d76f4ae5c9dd04a3635bc53724f502f",
+      "bytes": 1933,
+      "role": "asset"
+    },
+    {
+      "path": "data/objects/sharpa_hex_prism_hammer/t_shape_hex_prism_hammer_chamfered/t_shape_hex_prism_hammer_chamfered.collision_head.obj",
+      "sha256": "8b3da7c970e6123e892d7e43a626732b060c75fb82741dde6d5d7d2a7baec6a7",
+      "bytes": 2487,
+      "role": "asset"
+    },
+    {
+      "path": "data/objects/sharpa_hex_prism_hammer/t_shape_hex_prism_hammer_chamfered/t_shape_hex_prism_hammer_chamfered.obj",
+      "sha256": "259f9b9c6f1e7b032650ed611e6298952c29903710d490d88cb18093f6a6b71f",
+      "bytes": 8751,
+      "role": "asset"
+    },
+    {
+      "path": "data/objects/sharpa_hex_prism_hammer/t_shape_hex_prism_hammer_chamfered/t_shape_hex_prism_hammer_chamfered.stl",
+      "sha256": "27192b21c5bfd83882415390a90b5aba70791aad2b6ff5736af6a8db5476ff72",
+      "bytes": 7284,
+      "role": "asset"
+    },
+    {
+      "path": "data/objects/sharpa_hex_prism_hammer/t_shape_hex_prism_hammer_chamfered/t_shape_hex_prism_hammer_chamfered.usda",
+      "sha256": "2a07bae6faf05da4f1b721395b09aeca781ae46103b8199a42cbb6a02cd2b6c6",
+      "bytes": 6965,
+      "role": "asset"
+    },
+    {
+      "path": "data/hand_fields/sharpa_wave14_hb1/right_hand_C_MC_collision_sdf_2mm.npz",
+      "sha256": "f47fe1cd078bd97bba6f642a7b32a95a8fbe16600b387ca0d82fb9de71831bc9",
+      "bytes": 556951,
+      "role": "asset"
+    },
+    {
+      "path": "data/checkpoints/hexhammer_palmup_fullpose_192k_v1/model_89800.pt",
+      "sha256": "5c6e3674b055574c8a75e5ac800d3534b29fa39ac3d9dbb7a5640dbb7e7180c2",
+      "bytes": 13043621,
+      "role": "reference_checkpoint"
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "object_id": "hexprism_d40_l160_original_m",
+  "object_dims_m": [
+    0.03999999910593033,
+    0.03464101627469063,
+    0.1599999964237213
+  ],
+  "object_mesh": "data/objects/sharpa_manual_hex_prisms/hexprism_d40_l160_original_m/hexprism_d40_l160_original_m.obj",
+  "object_mesh_sha256": "8c36363b5cc81388513c8d3c64a67e25bccad63c3e2ed19819ced0c478d5d638",
+  "joint_limit_reference": "data/robots/sharpa_limits/right_sharpa_wave.usda",
+  "joint_limit_reference_sha256": "cb2ee455690cab3a7fb6912b9886d9205e57ca977d6ea2f132ac413442c9a09d",
+  "parents": 32,
+  "rows": 480,
+  "min_variants": 8,
+  "max_variants": 20,
+  "wrist_seed": 20260703,
+  "expansion_seed": 20261021,
+  "filter_batch_size": 64,
+  "expansion_envs": 64,
+  "max_expansion_batches": 240,
+  "initial_variants": 30,
+  "supplement_variants": 20,
+  "supplement_rounds": 2,
+  "searches": [
+    {
+      "name": "fast_full_seed0",
+      "args": [
+        "--seed",
+        0,
+        "--n_passes",
+        4,
+        "--balance_by_position",
+        "--max_per_position",
+        4,
+        "--target_total_grasps",
+        160,
+        "--roll_values_deg",
+        -90,
+        0,
+        90,
+        "--pitch_values_deg",
+        -90,
+        0,
+        90,
+        "--yaw_values_deg",
+        -60,
+        0,
+        60
+      ]
+    }
+  ],
+  "search_pose_batch_size": 32,
+  "search_inner_batch_size": 32,
+  "qcmd_batch_size": 128,
+  "minimum_parents": 8,
+  "max_wall_seconds": 1740
+}

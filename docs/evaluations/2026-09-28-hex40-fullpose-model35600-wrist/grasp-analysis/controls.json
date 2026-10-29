@@ -1,0 +1,117 @@
+{
+  "models": {
+    "wrist_and_target": {
+      "grouped_oof_auc": 0.6211584755181672,
+      "log_loss": 0.6684881235642192,
+      "iterations": [
+        8,
+        7,
+        10,
+        6,
+        7
+      ]
+    },
+    "plus_initial_position": {
+      "grouped_oof_auc": 0.8159592413222322,
+      "log_loss": 0.5234436400034234,
+      "iterations": [
+        40,
+        54,
+        48,
+        51,
+        51
+      ]
+    },
+    "plus_initial_orientation": {
+      "grouped_oof_auc": 0.625784955014274,
+      "log_loss": 0.6685908850992887,
+      "iterations": [
+        16,
+        15,
+        16,
+        15,
+        16
+      ]
+    },
+    "plus_density_only": {
+      "grouped_oof_auc": 0.6267298521293322,
+      "log_loss": 0.6667121548295477,
+      "iterations": [
+        8,
+        8,
+        11,
+        8,
+        8
+      ]
+    },
+    "plus_initial_pose_density": {
+      "grouped_oof_auc": 0.8156732538135242,
+      "log_loss": 0.5227953062134548,
+      "iterations": [
+        67,
+        62,
+        66,
+        62,
+        65
+      ]
+    },
+    "plus_pose_density_joints": {
+      "grouped_oof_auc": 0.8177395681417088,
+      "log_loss": 0.5206130840378844,
+      "iterations": [
+        100,
+        95,
+        84,
+        96,
+        92
+      ]
+    }
+  },
+  "protocol": "5-fold out-of-fold ridge logistic regression; entire source_seed parent grasp families and all wrist repeats remain in same fold; regularization fixed lambda=.001; baseline controls wrist, goal relative rotation vector and translation, magnitudes and feasibility; pose adds xyz/quadratic terms/rotation matrix/SE3 density; observational predictive association, not causal identification",
+  "z_bins": [
+    {
+      "low_mm": 43.86329650878906,
+      "high_mm": 86.65902137756348,
+      "parent_count": 123,
+      "mean_target_angle_deg": 95.44892883300781,
+      "mean_target_translation_mm": 15.23258164525032,
+      "feasible_count": 249,
+      "random_drops_before_success": 48,
+      "mean_active_fingers": 3.50390625,
+      "joint_margin_median_rad": 2.980232238769531e-07
+    },
+    {
+      "low_mm": 86.65902137756348,
+      "high_mm": 111.05657196044922,
+      "parent_count": 128,
+      "mean_target_angle_deg": 88.32604217529297,
+      "mean_target_translation_mm": 15.578212216496468,
+      "feasible_count": 256,
+      "random_drops_before_success": 53,
+      "mean_active_fingers": 4.1875,
+      "joint_margin_median_rad": 0.0
+    },
+    {
+      "low_mm": 111.05657196044922,
+      "high_mm": 133.1982765197754,
+      "parent_count": 135,
+      "mean_target_angle_deg": 88.91816711425781,
+      "mean_target_translation_mm": 15.115926042199135,
+      "feasible_count": 256,
+      "random_drops_before_success": 61,
+      "mean_active_fingers": 4.1015625,
+      "joint_margin_median_rad": 7.453858595618795e-15
+    },
+    {
+      "low_mm": 133.1982765197754,
+      "high_mm": 151.072509765625,
+      "parent_count": 115,
+      "mean_target_angle_deg": 83.52461242675781,
+      "mean_target_translation_mm": 15.416883863508701,
+      "feasible_count": 256,
+      "random_drops_before_success": 90,
+      "mean_active_fingers": 4.0390625,
+      "joint_margin_median_rad": 0.0
+    }
+  ]
+}

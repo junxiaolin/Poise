@@ -1,0 +1,8 @@
+# Install after FoundationPose's dependencies; preserve its CUDA Torch stack.
+torch==2.6.0+cu124
+torchvision==0.21.0+cu124
+numpy==2.4.4
+trimesh==4.12.2
+opencv-python==5.0.0.93
+pyrealsense2==2.58.2.10647
+warp-lang==1.15.0

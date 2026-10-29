@@ -1,0 +1,108 @@
+#usda 1.0
+# POISE changes to Sharpa Group's Apache-2.0 Wave model:
+# restore Wave1.4 training self-collision and body-level exclusion pairs;
+# clear the three mesh-level exclusions added in the pinned public revision.
+# No joint, inertial, collision-shape or actuator parameters are changed here.
+
+over "right_sharpa_wave"
+{
+    over "root_joint"
+    {
+        bool physxArticulation:enabledSelfCollisions = true
+    }
+
+    over "right_hand_C_MC" (
+        prepend apiSchemas = ["PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = [
+            </right_sharpa_wave/right_thumb_MC>,
+            </right_sharpa_wave/right_index_PP>,
+            </right_sharpa_wave/right_middle_PP>,
+            </right_sharpa_wave/right_ring_PP>,
+            </right_sharpa_wave/right_pinky_PP>,
+            </right_sharpa_wave/right_index_MCP_VL>,
+            </right_sharpa_wave/right_middle_MCP_VL>,
+            </right_sharpa_wave/right_ring_MCP_VL>,
+            </right_sharpa_wave/right_thumb_CMC_VL>
+        ]
+        over "collisions"
+        {
+            over "right_hand_C_MC"
+            {
+                over "mesh" (
+                    delete apiSchemas = ["PhysicsFilteredPairsAPI"]
+                )
+                {
+                    rel physics:filteredPairs = []
+                }
+            }
+        }
+    }
+
+    over "right_pinky_MC" (
+        prepend apiSchemas = ["PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = [
+            </right_sharpa_wave/right_pinky_PP>,
+            </right_sharpa_wave/right_pinky_MCP_VL>
+        ]
+        over "collisions"
+        {
+            over "right_pinky_MC"
+            {
+                over "mesh" (
+                    delete apiSchemas = ["PhysicsFilteredPairsAPI"]
+                )
+                {
+                    rel physics:filteredPairs = []
+                }
+            }
+        }
+    }
+
+    over "right_thumb_MC" (
+        prepend apiSchemas = ["PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = </right_sharpa_wave/right_thumb_PP>
+        over "collisions"
+        {
+            over "right_thumb_MC"
+            {
+                over "mesh" (
+                    delete apiSchemas = ["PhysicsFilteredPairsAPI"]
+                )
+                {
+                    rel physics:filteredPairs = []
+                }
+            }
+        }
+    }
+
+    over "right_index_PP" (
+        prepend apiSchemas = ["PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = </right_sharpa_wave/right_index_MCP_VL>
+    }
+    over "right_middle_PP" (
+        prepend apiSchemas = ["PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = </right_sharpa_wave/right_middle_MCP_VL>
+    }
+    over "right_ring_PP" (
+        prepend apiSchemas = ["PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = </right_sharpa_wave/right_ring_MCP_VL>
+    }
+    over "right_pinky_PP" (
+        prepend apiSchemas = ["PhysicsFilteredPairsAPI"]
+    )
+    {
+        rel physics:filteredPairs = </right_sharpa_wave/right_pinky_MCP_VL>
+    }
+}

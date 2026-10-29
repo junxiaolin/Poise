@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/NVlabs/FoundationPose.git",
+  "revision": "a1b694b83e633c2cb6115b9063d940a687759392",
+  "patches": [],
+  "extensions": {
+    "pytorch3d": {
+      "repository": "https://github.com/facebookresearch/pytorch3d.git",
+      "revision": "c8fcd83ff96fa0a5893c0b994f9285d7aa772540"
+    },
+    "nvdiffrast": {
+      "repository": "https://github.com/NVlabs/nvdiffrast.git",
+      "revision": "253ac4fcea7de5f396371124af597e6cc957bfae"
+    }
+  },
+  "weights_url": "https://drive.google.com/drive/folders/1DFezOAD0oD1BblsXVxqDsl8fj0qzB82i",
+  "weights_sha256": {
+    "weights/2023-10-28-18-33-37/config.yml": "28a6ba94a33230ee5fc3c51939486281578b0972542bd9e38ca6123e75605686",
+    "weights/2023-10-28-18-33-37/model_best.pth": "774700586ddc435d408fc01c9809c43e151232936369dfbea0f0f964ba471d60",
+    "weights/2024-01-11-20-02-45/config.yml": "a79db4de3b95885dd5ae86833b37b8698a75dad81e87d1086cd50b2fcd8dda3f",
+    "weights/2024-01-11-20-02-45/model_best.pth": "81924d384bf5c26c646ee4783104982ae3d1e049c181c36641b6a7aeae494c26"
+  },
+  "license_notice": "Use upstream LICENSE and weight terms; not covered by POISE licensing",
+  "validation": "Source pin and local dependency imports; independent install and robot operation unverified"
+}

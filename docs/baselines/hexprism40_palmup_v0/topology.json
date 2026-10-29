@@ -1,0 +1,11 @@
+{
+  "rank": 0,
+  "world_size": 2,
+  "device": "cuda:0",
+  "seed": 42,
+  "base_seed": 42,
+  "envs_per_rank": 32000,
+  "total_envs": 64000,
+  "backend": "gloo",
+  "curriculum_sync": true
+}

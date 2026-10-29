@@ -1,0 +1,1596 @@
+{
+  "viewer": {
+    "eye": [
+      7.5,
+      7.5,
+      7.5
+    ],
+    "lookat": [
+      0.0,
+      0.0,
+      0.0
+    ],
+    "cam_prim_path": "/OmniverseKit_Persp",
+    "resolution": [
+      1280,
+      720
+    ],
+    "origin_type": "world",
+    "env_index": 0,
+    "asset_name": null,
+    "body_name": null
+  },
+  "sim": {
+    "physics_prim_path": "/physicsScene",
+    "device": "cuda:0",
+    "dt": 0.008333333333333333,
+    "render_interval": 6,
+    "gravity": [
+      0.0,
+      0.0,
+      -9.81
+    ],
+    "enable_scene_query_support": false,
+    "use_fabric": true,
+    "physx": {
+      "solver_type": 1,
+      "min_position_iteration_count": 1,
+      "max_position_iteration_count": 255,
+      "min_velocity_iteration_count": 0,
+      "max_velocity_iteration_count": 255,
+      "enable_ccd": false,
+      "enable_stabilization": false,
+      "enable_enhanced_determinism": false,
+      "bounce_threshold_velocity": 0.5,
+      "friction_offset_threshold": 0.04,
+      "friction_correlation_distance": 0.025,
+      "gpu_max_rigid_contact_count": 8388608,
+      "gpu_max_rigid_patch_count": 4194304,
+      "gpu_found_lost_pairs_capacity": 2097152,
+      "gpu_found_lost_aggregate_pairs_capacity": 33554432,
+      "gpu_total_aggregate_pairs_capacity": 2097152,
+      "gpu_collision_stack_size": 67108864,
+      "gpu_heap_capacity": 67108864,
+      "gpu_temp_buffer_capacity": 16777216,
+      "gpu_max_num_partitions": 8,
+      "gpu_max_soft_body_contacts": 1048576,
+      "gpu_max_particle_contacts": 1048576,
+      "solve_articulation_contact_last": false
+    },
+    "physics_material": {
+      "func": "isaaclab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+      "static_friction": 1.0,
+      "dynamic_friction": 1.0,
+      "restitution": 0.0,
+      "friction_combine_mode": "multiply",
+      "restitution_combine_mode": "multiply",
+      "compliant_contact_stiffness": 0.0,
+      "compliant_contact_damping": 0.0
+    },
+    "render": {
+      "enable_translucency": null,
+      "enable_reflections": null,
+      "enable_global_illumination": null,
+      "antialiasing_mode": null,
+      "enable_dlssg": null,
+      "enable_dl_denoiser": null,
+      "dlss_mode": null,
+      "enable_direct_lighting": null,
+      "samples_per_pixel": null,
+      "enable_shadows": null,
+      "enable_ambient_occlusion": null,
+      "dome_light_upper_lower_strategy": null,
+      "carb_settings": null,
+      "rendering_mode": null
+    },
+    "create_stage_in_memory": false
+  },
+  "ui_window_class_type": "isaaclab.envs.ui.base_env_window:BaseEnvWindow",
+  "seed": 42,
+  "decimation": 6,
+  "is_finite_horizon": false,
+  "episode_length_s": 20.0,
+  "scene": {
+    "num_envs": 24000,
+    "env_spacing": 0.55,
+    "lazy_sensor_update": true,
+    "replicate_physics": false,
+    "filter_collisions": true,
+    "clone_in_fabric": false
+  },
+  "events": null,
+  "observation_space": 304,
+  "num_observations": null,
+  "state_space": 552,
+  "num_states": null,
+  "observation_noise_model": null,
+  "action_space": 22,
+  "num_actions": null,
+  "action_noise_model": null,
+  "rerender_on_reset": false,
+  "wait_for_textures": true,
+  "xr": null,
+  "log_dir": null,
+  "robot_cfg": {
+    "class_type": "isaaclab.assets.articulation.articulation:Articulation",
+    "prim_path": "/World/envs/env_.*/Robot",
+    "spawn": {
+      "func": "isaaclab.sim.spawners.from_files.from_files:spawn_from_usd",
+      "visible": true,
+      "semantic_tags": null,
+      "copy_from_source": true,
+      "mass_props": null,
+      "deformable_props": null,
+      "rigid_props": {
+        "rigid_body_enabled": null,
+        "kinematic_enabled": null,
+        "disable_gravity": true,
+        "linear_damping": null,
+        "angular_damping": 0.01,
+        "max_linear_velocity": 1000.0,
+        "max_angular_velocity": 3666.9298888372687,
+        "max_depenetration_velocity": 1000.0,
+        "max_contact_impulse": 1e+32,
+        "enable_gyroscopic_forces": null,
+        "retain_accelerations": null,
+        "solver_position_iteration_count": null,
+        "solver_velocity_iteration_count": null,
+        "sleep_threshold": null,
+        "stabilization_threshold": null
+      },
+      "collision_props": {
+        "collision_enabled": true,
+        "contact_offset": 0.002,
+        "rest_offset": 0.0,
+        "torsional_patch_radius": null,
+        "min_torsional_patch_radius": null
+      },
+      "activate_contact_sensors": false,
+      "scale": null,
+      "articulation_props": {
+        "articulation_enabled": null,
+        "enabled_self_collisions": true,
+        "solver_position_iteration_count": 8,
+        "solver_velocity_iteration_count": 0,
+        "sleep_threshold": 0.005,
+        "stabilization_threshold": 0.0005,
+        "fix_root_link": null
+      },
+      "fixed_tendons_props": null,
+      "spatial_tendons_props": null,
+      "joint_drive_props": null,
+      "visual_material_path": "material",
+      "visual_material": null,
+      "usd_path": "data/robots/sharpa_wave/right_sharpa_wave.usda",
+      "variants": null
+    },
+    "init_state": {
+      "pos": [
+        0.0,
+        0.0,
+        0.5
+      ],
+      "rot": [
+        0.7071067811865476,
+        0.0,
+        -0.7071067811865476,
+        0.0
+      ],
+      "lin_vel": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ang_vel": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "joint_pos": {
+        "right_thumb_CMC_FE": 1.6602917493823348,
+        "right_thumb_CMC_AA": -0.05432232577077231,
+        "right_thumb_MCP_FE": 0.25859251983153503,
+        "right_thumb_MCP_AA": -0.018062936027664914,
+        "right_thumb_IP": 0.21362585698315315,
+        "right_index_MCP_FE": 1.1381450877216954,
+        "right_index_MCP_AA": 0.10669721316216935,
+        "right_index_PIP": 0.27200869125869026,
+        "right_index_DIP": 0.10303114906835525,
+        "right_middle_MCP_FE": 0.5539935099888549,
+        "right_middle_MCP_AA": -0.01672234862920807,
+        "right_middle_PIP": 0.7309740849312847,
+        "right_middle_DIP": 0.2241700891261517,
+        "right_ring_MCP_FE": 0.5536852848429527,
+        "right_ring_MCP_AA": 0.17182033447598338,
+        "right_ring_PIP": 0.6147688416030259,
+        "right_ring_DIP": 0.31465476433362055,
+        "right_pinky_CMC": 0.19148356289480187,
+        "right_pinky_MCP_FE": 1.1922160860801805,
+        "right_pinky_MCP_AA": 0.13947816170605204,
+        "right_pinky_PIP": 0.10290915055364085,
+        "right_pinky_DIP": 0.1029526092520155
+      },
+      "joint_vel": {
+        ".*": 0.0
+      }
+    },
+    "collision_group": 0,
+    "debug_vis": false,
+    "articulation_root_prim_path": null,
+    "soft_joint_pos_limit_factor": 1.0,
+    "actuators": {
+      "joints": {
+        "class_type": "isaaclab.actuators.actuator_pd:IdealPDActuator",
+        "joint_names_expr": [
+          ".*"
+        ],
+        "effort_limit": null,
+        "velocity_limit": null,
+        "effort_limit_sim": null,
+        "velocity_limit_sim": null,
+        "stiffness": null,
+        "damping": null,
+        "armature": null,
+        "friction": null,
+        "dynamic_friction": null,
+        "viscous_friction": null
+      }
+    },
+    "actuator_value_resolution_debug_print": false
+  },
+  "cube_cfg": {
+    "class_type": "isaaclab.assets.rigid_object.rigid_object:RigidObject",
+    "prim_path": "/World/envs/env_.*/Cube",
+    "spawn": {
+      "func": "isaaclab.sim.spawners.shapes.shapes:spawn_cuboid",
+      "visible": true,
+      "semantic_tags": null,
+      "copy_from_source": true,
+      "mass_props": {
+        "mass": 0.05,
+        "density": null
+      },
+      "rigid_props": {
+        "rigid_body_enabled": null,
+        "kinematic_enabled": null,
+        "disable_gravity": false,
+        "linear_damping": null,
+        "angular_damping": null,
+        "max_linear_velocity": null,
+        "max_angular_velocity": null,
+        "max_depenetration_velocity": 10.0,
+        "max_contact_impulse": null,
+        "enable_gyroscopic_forces": true,
+        "retain_accelerations": null,
+        "solver_position_iteration_count": 8,
+        "solver_velocity_iteration_count": 1,
+        "sleep_threshold": 0.005,
+        "stabilization_threshold": 0.0025
+      },
+      "collision_props": {
+        "collision_enabled": null,
+        "contact_offset": 0.002,
+        "rest_offset": 0.0,
+        "torsional_patch_radius": null,
+        "min_torsional_patch_radius": null
+      },
+      "activate_contact_sensors": true,
+      "visual_material_path": "material",
+      "visual_material": {
+        "func": "isaaclab.sim.spawners.materials.visual_materials:spawn_preview_surface",
+        "diffuse_color": [
+          0.15,
+          0.45,
+          0.95
+        ],
+        "emissive_color": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "roughness": 0.55,
+        "metallic": 0.0,
+        "opacity": 1.0
+      },
+      "physics_material_path": "material",
+      "physics_material": {
+        "func": "isaaclab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+        "static_friction": 1.0,
+        "dynamic_friction": 1.0,
+        "restitution": 0.0,
+        "friction_combine_mode": "average",
+        "restitution_combine_mode": "average",
+        "compliant_contact_stiffness": 0.0,
+        "compliant_contact_damping": 0.0
+      },
+      "size": [
+        0.04,
+        0.04,
+        0.04
+      ]
+    },
+    "init_state": {
+      "pos": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "rot": [
+        1.0,
+        0.0,
+        0.0,
+        0.0
+      ],
+      "lin_vel": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "ang_vel": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    "collision_group": 0,
+    "debug_vis": false
+  },
+  "ground_cfg": {
+    "func": "isaaclab.sim.spawners.from_files.from_files:spawn_ground_plane",
+    "visible": true,
+    "semantic_tags": null,
+    "copy_from_source": true,
+    "usd_path": "",
+    "color": null,
+    "size": [
+      100.0,
+      100.0
+    ],
+    "physics_material": {
+      "func": "isaaclab.sim.spawners.materials.physics_materials:spawn_rigid_body_material",
+      "static_friction": 0.5,
+      "dynamic_friction": 0.5,
+      "restitution": 0.0,
+      "friction_combine_mode": "average",
+      "restitution_combine_mode": "average",
+      "compliant_contact_stiffness": 0.0,
+      "compliant_contact_damping": 0.0
+    }
+  },
+  "num_rerenders_on_reset": 0,
+  "hand_type": "sharpa_wave_right",
+  "hand_root_orientation": "palm_up",
+  "sharpa_deploy_dof_limits_enabled": false,
+  "sharpa_joint_limit_profile": "usd_scaled",
+  "sharpa_usd_joint_limit_endpoint_scale": 0.9,
+  "object_keypoint_side_length_m": 0.04,
+  "multisize_cube_enabled": false,
+  "multisize_cube_object_ids": [
+    "cube_3cm",
+    "cube_4cm",
+    "cube_5cm"
+  ],
+  "multisize_cube_side_lengths_m": [
+    0.03,
+    0.04,
+    0.05
+  ],
+  "multisize_cube_stable_cache_paths": [],
+  "multisize_cube_size_obs_enabled": false,
+  "multicuboid_enabled": false,
+  "multicuboid_object_ids": [
+    "cuboid_3x4x4cm",
+    "cuboid_4x3x4cm",
+    "cuboid_4x4x3cm",
+    "cuboid_5x4x4cm",
+    "cuboid_4x5x4cm",
+    "cuboid_4x4x5cm",
+    "cuboid_3x5x4cm",
+    "cuboid_5x3x4cm",
+    "cuboid_4x3x5cm",
+    "cuboid_5x4x3cm"
+  ],
+  "multicuboid_dims_m": [
+    [
+      0.03,
+      0.04,
+      0.04
+    ],
+    [
+      0.04,
+      0.03,
+      0.04
+    ],
+    [
+      0.04,
+      0.04,
+      0.03
+    ],
+    [
+      0.05,
+      0.04,
+      0.04
+    ],
+    [
+      0.04,
+      0.05,
+      0.04
+    ],
+    [
+      0.04,
+      0.04,
+      0.05
+    ],
+    [
+      0.03,
+      0.05,
+      0.04
+    ],
+    [
+      0.05,
+      0.03,
+      0.04
+    ],
+    [
+      0.04,
+      0.03,
+      0.05
+    ],
+    [
+      0.05,
+      0.04,
+      0.03
+    ]
+  ],
+  "multicuboid_stable_cache_paths": [],
+  "multicuboid_dim_obs_enabled": false,
+  "multicuboid_shared_materials_enabled": true,
+  "multicuboid_shared_physics_material_path": "/Looks/poise_multicuboid_shared_physics",
+  "multicuboid_visual_material_path_prefix": "/Looks/poise_multicuboid_visual_",
+  "primitive_multi_shape_enabled": true,
+  "primitive_object_ids": [
+    "hexprism_d40_l160_original_m"
+  ],
+  "primitive_dims_m": [
+    [
+      0.03999999910593033,
+      0.03464101627469063,
+      0.1599999964237213
+    ]
+  ],
+  "primitive_stable_cache_paths": [
+    "data/stable_grasps/sharpa_manual_hex_prisms/hexprism_d40_l160_fast_omniwrist8.pt"
+  ],
+  "primitive_post_success_reset_cache_paths": [],
+  "primitive_post_success_reset_sample_probs": [],
+  "primitive_dim_obs_enabled": false,
+  "primitive_shape_obs_enabled": false,
+  "primitive_shape_obs_mode": "onehot",
+  "primitive_geometry_latent_obs_enabled": true,
+  "primitive_geometry_latent_source": "lookup",
+  "primitive_geometry_latent_dim": 64,
+  "primitive_geometry_latent_path": "data/geometry_latents/hexprism_d40_l160_bps64_mesh_data_64_v1.pt",
+  "primitive_object_shape_names": [
+    "hex_prism"
+  ],
+  "sharpa_deployable_mesh_bps_obs_enabled": true,
+  "object_mesh_data_path": "data/geometry_latents/hexprism_d40_l160_bps64_mesh_data_64_v1.pt",
+  "object_mesh_mass_properties_enabled": true,
+  "object_mesh_inertia_multiplier_range": [
+    1.0,
+    4.0
+  ],
+  "object_mesh_inertia_multiplier_distribution": "log_uniform",
+  "grasp_wrench_mesh_projection_enabled": true,
+  "primitive_hand_surface_pointcloud_path": "",
+  "primitive_hand_surface_delta_chunk_size": 64,
+  "primitive_hand_surface_delta_scale_m": 0.04,
+  "primitive_hand_surface_delta_clip": 2.0,
+  "primitive_shape_names": [
+    "hex_prism"
+  ],
+  "primitive_shape_balanced_sampling": false,
+  "primitive_rank_object_partition_enabled": false,
+  "primitive_rank_object_partition_mode": "strided",
+  "primitive_rank_object_partition_rank": -1,
+  "primitive_rank_object_partition_world_size": 0,
+  "primitive_rank_object_partition_objects_per_rank": 0,
+  "primitive_rank_object_partition_cycle_offset": 0,
+  "primitive_single_asset_per_env_enabled": true,
+  "primitive_shared_materials_enabled": true,
+  "primitive_shared_physics_material_path": "/Looks/poise_primitive_shared_physics",
+  "primitive_visual_material_path_prefix": "/Looks/poise_primitive_visual_",
+  "cube_inertia_override_enabled": false,
+  "cube_inertia_diag_kg_m2": 0.0001,
+  "object_inertia_from_sampled_mass_dims_enabled": false,
+  "object_inertia_from_compound_cuboids_enabled": false,
+  "object_inertia_compound_cuboid_dims_m": [],
+  "object_inertia_compound_cuboid_centers_m": [],
+  "object_inertia_compound_cuboid_relative_density": [],
+  "object_inertia_compound_multiplier_randomization_enabled": false,
+  "object_inertia_compound_multiplier_range": [
+    1.0,
+    1.0
+  ],
+  "object_inertia_compound_multiplier_distribution": "log_uniform",
+  "object_inertia_real_to_legacy_randomization_enabled": false,
+  "object_inertia_real_to_legacy_upper_diag_kg_m2": 0.0001,
+  "object_inertia_real_to_legacy_distribution": "log_uniform",
+  "object_inertia_mass_size_scaling_enabled": false,
+  "object_scale_randomization_enabled": true,
+  "object_scale_range": [
+    0.975,
+    1.025
+  ],
+  "object_nearcube_geometry_randomization_enabled": false,
+  "object_nearcube_geometry_mixture_weights": [
+    0.6,
+    0.2,
+    0.2
+  ],
+  "object_nearcube_nominal_side_range_m": [
+    0.039,
+    0.041
+  ],
+  "object_nearcube_nominal_side_mode_m": 0.04,
+  "object_nearcube_wide_side_range_m": [
+    0.038,
+    0.042
+  ],
+  "object_nearcube_cuboid_dim_range_m": [
+    0.038,
+    0.042
+  ],
+  "object_nearcube_maximum_aspect_ratio": 1.08,
+  "object_nearcube_base_dims_m": [
+    0.04,
+    0.04,
+    0.04
+  ],
+  "object_mass_randomization_enabled": true,
+  "object_mass_nominal_kg": 0.02,
+  "object_mass_range_kg": [
+    0.01,
+    0.1
+  ],
+  "object_mass_sampling_mode": "nominal_log_uniform_mixture",
+  "object_mass_nominal_mixture_weight": 0.5,
+  "object_mass_nominal_range_kg": [
+    0.016,
+    0.024
+  ],
+  "object_mass_scale_correlation_enabled": false,
+  "object_mass_density_distribution": "log_uniform",
+  "object_mass_cuboid_density_correlation_enabled": false,
+  "object_mass_density_range_kg_m3": [
+    250.0,
+    375.0
+  ],
+  "object_com_randomization_enabled": true,
+  "object_com_randomization_range_m": 0.002,
+  "object_friction_randomization_enabled": true,
+  "object_friction_scale_range": [
+    0.5,
+    2.0
+  ],
+  "object_friction_randomization_buckets": 64,
+  "object_mass_bucket_metrics_enabled": true,
+  "object_mass_bucket_edges_kg": [
+    0.01,
+    0.02,
+    0.04,
+    0.07,
+    0.1
+  ],
+  "object_friction_base": 0.2,
+  "metal_friction_base": 0.1,
+  "elastomer_friction_base": 0.8,
+  "random_external_force_enabled": true,
+  "random_external_wrench_mode": "simtoolreal",
+  "random_external_force_scale": 6.666666666666667,
+  "random_external_force_prob": 0.02,
+  "random_external_force_prob_range": [
+    0.0003333333333333333,
+    0.03333333333333333
+  ],
+  "random_external_force_decay": 0.0,
+  "random_external_force_decay_interval_s": 0.08,
+  "random_external_torque_scale": 2.0,
+  "random_external_torque_sampling_mode": "inertia_scaled_angular_acceleration",
+  "random_external_angular_acceleration_scale_rad_s2": 133.33333333333334,
+  "random_external_torque_prob_range": [
+    0.0003333333333333333,
+    0.03333333333333333
+  ],
+  "random_external_torque_decay": 0.0,
+  "random_external_torque_decay_interval_s": 0.08,
+  "random_external_wrench_timebase_matching_enabled": false,
+  "random_external_wrench_reference_hz": 60.0,
+  "sharpa_deployable_joint_sensing_noise_scale": 0.02,
+  "sharpa_deployable_object_pose_obs_delay_noise_enabled": true,
+  "sharpa_deployable_object_pose_obs_delay_max_steps": 3,
+  "sharpa_deployable_object_pose_obs_delay_mode": "episode_fixed",
+  "sharpa_deployable_object_pose_obs_pos_noise_std_m": 0.01,
+  "sharpa_deployable_object_pose_obs_rot_noise_deg": 5.0,
+  "sharpa_deployable_object_pose_obs_rot_noise_distribution": "gaussian_clipped",
+  "sharpa_deployable_object_pose_obs_dropout_prob": 0.03,
+  "sharpa_deployable_object_pose_obs_dropout_mode": "hold_last",
+  "sharpa_deployable_object_pose_obs_dropout_confidence": 0.0,
+  "stable_cache_path": "data/stable_grasps/sharpa_manual_hex_prisms/hexprism_d40_l160_fast_omniwrist8.pt",
+  "scale_conditioned_stable_cache_manifest_path": "",
+  "geometry_conditioned_stable_cache_manifest_path": "",
+  "post_success_reset_cache_path": "",
+  "post_success_reset_sample_prob": 0.0,
+  "reset_source": "stable_cache",
+  "reset_grasp_selection": "random",
+  "reset_grasp_score_pool_fraction": 0.1,
+  "reset_grasp_filter_by_local_random_workspace": false,
+  "reset_grasp_min_manipulability_q_margin": -1.0,
+  "reset_score_low_z_weight": 1.0,
+  "reset_score_low_q_margin_weight": 1.0,
+  "reset_score_low_contact_weight": 1.0,
+  "reset_score_boundary_weight": 1.0,
+  "local_random_workspace_quantile_low": 0.02,
+  "local_random_workspace_quantile_high": 0.98,
+  "local_random_workspace_margin_m": 0.003,
+  "local_random_use_explicit_workspace_bounds": true,
+  "local_random_workspace_min_x_m": 0.035,
+  "local_random_workspace_min_y_m": -0.035,
+  "local_random_workspace_min_z_m": 0.075,
+  "local_random_workspace_max_x_m": 0.085,
+  "local_random_workspace_max_y_m": 0.035,
+  "local_random_workspace_max_z_m": 0.135,
+  "observation_profile": "sharpa_pose6d_v1_tactile60_actor304_critic552",
+  "dexndm_zpos_observation_space": 492,
+  "dexndm_joint_noise_scale": 0.02,
+  "dexndm_zpos_history_keep_frames": 3,
+  "dexndm_zpos_all_body_contact_force_obs_enabled": true,
+  "dexndm_zpos_rot_axis_obs_enabled": false,
+  "dexndm_zpos_twist_target_obs_enabled": true,
+  "dexndm_zpos_twist_target_axis_obs_enabled": true,
+  "dexndm_zpos_gravity_palm_obs_enabled": false,
+  "sharpa_deployable_target_translation_scale_m": 0.03,
+  "sharpa_deployable_object_lin_vel_clip_mps": 10.0,
+  "sharpa_deployable_object_ang_vel_clip_radps": 50.0,
+  "sharpa_deployable_pose_tracker_confidence": 1.0,
+  "sharpa_deployable_asymmetric_critic_enabled": true,
+  "sharpa_deployable_critic_observation_space": 492,
+  "dexndm_twist_target_axis": "random",
+  "randomize_target_twist_direction": true,
+  "target_twist_angle_rad": 0.0872665,
+  "twist_target_sampling_mode": "curriculum",
+  "twist_target_uniform_min_rad": 0.0872665,
+  "twist_target_uniform_max_rad": 0.785398,
+  "twist_target_curriculum_enabled": true,
+  "twist_target_curriculum_mode": "adaptive_frontier",
+  "twist_target_curriculum_start_rad": 0.08726646259971647,
+  "twist_target_curriculum_end_rad": 3.1415926,
+  "twist_target_curriculum_steps": 1000000,
+  "twist_target_adaptive_frontier_width_rad": 0.436332313,
+  "twist_target_adaptive_step_rad": 0.17453292519943295,
+  "twist_target_adaptive_success_threshold": 0.4,
+  "chain_twist_target_adaptive_success_threshold": 0.4,
+  "twist_target_adaptive_freeze_threshold": 0.2,
+  "twist_target_adaptive_tail_batches": 8000,
+  "twist_target_adaptive_min_history_batches": 5,
+  "twist_target_adaptive_frontier_sample_prob": 0.6,
+  "twist_target_adaptive_replay_sample_prob": 0.3,
+  "twist_target_adaptive_anchor_sample_prob": 0.1,
+  "twist_target_refresh_on_success": true,
+  "chain_post_success_target_curriculum_enabled": true,
+  "primary_chain_shared_rotation_curriculum_enabled": true,
+  "chain_post_success_target_curriculum_start_rad": 0.08726646259971647,
+  "chain_post_success_target_curriculum_end_rad": 3.1415926,
+  "chain_curriculum_sync_enabled": false,
+  "twist_target_chain_sync_max_lead_rad": 0.523599,
+  "pose6d_translation_sampling_mode": "curriculum",
+  "pose6d_translation_uniform_min_m": 0.002,
+  "pose6d_translation_uniform_max_m": 0.015,
+  "pose6d_translation_curriculum_enabled": true,
+  "pose6d_translation_curriculum_mode": "adaptive_frontier",
+  "pose6d_translation_target_delta_m": 0.002,
+  "pose6d_translation_target_axis": "random",
+  "pose6d_translation_curriculum_start_m": 0.01,
+  "pose6d_translation_curriculum_end_m": 0.05,
+  "pose6d_translation_curriculum_steps": 1000000,
+  "pose6d_translation_adaptive_frontier_width_m": 0.01,
+  "pose6d_translation_adaptive_step_m": 0.01,
+  "pose6d_translation_adaptive_success_threshold": 0.4,
+  "chain_pose6d_translation_adaptive_success_threshold": -1.0,
+  "pose6d_translation_adaptive_freeze_threshold": 0.2,
+  "pose6d_translation_adaptive_tail_batches": 8000,
+  "pose6d_translation_adaptive_min_history_batches": 5,
+  "pose6d_translation_adaptive_frontier_sample_prob": 0.6,
+  "pose6d_translation_adaptive_replay_sample_prob": 0.3,
+  "pose6d_translation_adaptive_anchor_sample_prob": 0.1,
+  "pose6d_translation_workspace_clamp_enabled": false,
+  "adaptive_frontier_soft_promotion_enabled": true,
+  "adaptive_frontier_soft_promotion_plateau_iterations": 2000,
+  "adaptive_frontier_soft_promotion_global_cooldown_iterations": 1000,
+  "adaptive_frontier_soft_promotion_steps_per_iteration": 8,
+  "adaptive_frontier_soft_promotion_success_threshold": 0.3,
+  "adaptive_frontier_soft_promotion_min_history_batches": 8000,
+  "adaptive_frontier_soft_promotion_twist_step_rad": 0.08726646259971647,
+  "adaptive_frontier_soft_promotion_translation_step_m": 0.005,
+  "curriculum_global_min_frontier_done_episodes": 20000,
+  "curriculum_distributed_sync_enabled": true,
+  "multiobject_per_object_curriculum_enabled": false,
+  "multiobject_curriculum_global_min_frontier_done_episodes": 10000,
+  "chain_pose6d_translation_curriculum_enabled": false,
+  "chain_pose6d_translation_curriculum_start_m": 0.01,
+  "chain_pose6d_translation_curriculum_end_m": 0.03,
+  "pose6d_translation_chain_sync_max_lead_fraction": 0.25,
+  "action_scale": 0.041666666666666664,
+  "action_smoothing": 1.0,
+  "enable_action_target_obs": false,
+  "enable_target_error_obs": false,
+  "qtarget_history_len": 3,
+  "enable_object_pose_obs": false,
+  "object_velocity_obs_source": "pose_finite_difference",
+  "enable_all_body_contact_force_obs": false,
+  "contact_sensor_binary_threshold_n": 0.05,
+  "contact_sensor_max_contact_data_count_per_prim": 4,
+  "success_steps": 20,
+  "pose6d_success_criterion": "full_pose",
+  "pose6d_success_position_threshold_m": 0.015,
+  "pose6d_success_orientation_threshold_rad": 0.2617993877991494,
+  "twist_success_threshold_rad": 0.174533,
+  "twist_swing_success_threshold_rad": 0.174533,
+  "twist_position_success_threshold_m": 0.01,
+  "pose6d_translation_success_threshold_m": 0.01,
+  "pose6d_translation_orthogonal_success_threshold_m": 0.01,
+  "pose6d_anchor_relaxed_enabled": false,
+  "pose6d_anchor_obs_enabled": true,
+  "pose6d_anchor_translation_mode": "long_axis_biased",
+  "pose6d_anchor_feasibility_mode": "legacy",
+  "pose6d_anchor_dynamic_enabled": false,
+  "pose6d_anchor_dynamic_source": "contact_or_nearest",
+  "pose6d_anchor_dynamic_force_threshold_n": 0.05,
+  "pose6d_anchor_dynamic_nearest_max_dist_m": 0.08,
+  "pose6d_anchor_dynamic_fallback_to_previous": true,
+  "pose6d_anchor_dynamic_smoothing": 0.0,
+  "pose6d_anchor_perp_translation_curriculum_start_m": 0.0,
+  "pose6d_anchor_perp_translation_curriculum_end_m": 0.01,
+  "pose6d_anchor_local_y_shift_min_m": 0.0,
+  "pose6d_anchor_local_y_shift_max_m": 0.0,
+  "pose6d_anchor_clip_local_to_object_ends": true,
+  "pose6d_anchor_feasible_max_attempts": 16,
+  "pose6d_anchor_workspace_bounds_m": [
+    0.03,
+    0.11,
+    -0.05,
+    0.05,
+    0.05,
+    0.14
+  ],
+  "pose6d_anchor_segment_centerline_bounds_m": [
+    -0.04,
+    0.19,
+    -0.15,
+    0.15,
+    0.02,
+    0.21
+  ],
+  "pose6d_anchor_segment_samples": 11,
+  "pose6d_anchor_min_segment_points_inside_workspace": 1,
+  "pose6d_anchor_min_centerline_z_m": 0.02,
+  "pose6d_anchor_palm_forbidden_min_x_m": -0.02,
+  "pose6d_anchor_palm_forbidden_max_x_m": 0.08,
+  "pose6d_anchor_palm_forbidden_max_abs_y_m": 0.07,
+  "pose6d_anchor_palm_forbidden_max_z_m": 0.03,
+  "pose6d_anchor_wrist_forbidden_min_x_m": -0.08,
+  "pose6d_anchor_wrist_forbidden_max_x_m": 0.005,
+  "pose6d_anchor_wrist_forbidden_max_abs_y_m": 0.09,
+  "pose6d_anchor_wrist_forbidden_max_z_m": 0.09,
+  "pose6d_anchor_forbidden_block_names": [],
+  "pose6d_anchor_forbidden_block_bounds_m": [],
+  "pose6d_anchor_forbidden_block_margin_m": 0.0,
+  "pose6d_anchor_forbidden_block_inflate_by_object_radius": false,
+  "pose6d_anchor_success_threshold_m": 0.01,
+  "pose6d_anchor_per_object_ids": [
+    "hexprism_d40_l160_original_m"
+  ],
+  "pose6d_anchor_per_object_success_thresholds_m": [
+    0.015
+  ],
+  "pose6d_anchor_per_object_swing_thresholds_rad": [
+    0.2617993877991494
+  ],
+  "pose6d_feasible_target_filter_enabled": true,
+  "pose6d_feasible_target_max_attempts": 32,
+  "pose6d_feasible_target_workspace_bounds_m": [
+    0.03,
+    0.11,
+    -0.05,
+    0.05,
+    0.05,
+    0.14
+  ],
+  "pose6d_feasible_target_proxy_mode": "dominant_axis",
+  "pose6d_feasible_target_proxy_samples": 9,
+  "pose6d_feasible_target_proxy_endpoint_margin_m": 0.0,
+  "pose6d_feasible_target_forbidden_block_enabled": true,
+  "pose6d_feasible_target_forbidden_mode": "sdf_grid",
+  "pose6d_feasible_target_forbidden_block_names": [],
+  "pose6d_feasible_target_forbidden_block_bounds_m": [],
+  "pose6d_feasible_target_forbidden_block_margin_m": 0.0,
+  "pose6d_feasible_target_forbidden_block_inflate_by_object_radius": false,
+  "pose6d_feasible_target_forbidden_sdf_path": "data/hand_fields/sharpa_wave14_hb1/right_hand_C_MC_collision_sdf_2mm.npz",
+  "pose6d_feasible_target_forbidden_sdf_sha256": "f47fe1cd078bd97bba6f642a7b32a95a8fbe16600b387ca0d82fb9de71831bc9",
+  "pose6d_feasible_target_forbidden_sdf_margin_m": 0.0,
+  "pose6d_feasible_target_forbidden_sdf_interpolation_guard_m": 0.0005,
+  "pose6d_feasible_target_forbidden_sdf_allowed_penetration_m": 0.002,
+  "pose6d_feasible_target_forbidden_sdf_inflate_by_object_radius": false,
+  "pose6d_feasible_target_forbidden_sdf_proxy_mode": "compound_sphere_cover_v1",
+  "pose6d_feasible_target_forbidden_sdf_proxy_points_local_m": [
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      -0.0733333316942056
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      -0.05999999865889549
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      -0.04666666562358538
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      -0.03333333258827527
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      -0.019999999552965164
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      -0.0066666665176550455
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      0.006666666517655059
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      0.019999999552965164
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      0.03333333258827528
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      0.0466666656235854
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      0.05999999865889549
+    ],
+    [
+      -0.013333333035310108,
+      -0.011547005424896877,
+      0.07333333169420561
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      -0.0733333316942056
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      -0.05999999865889549
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      -0.04666666562358538
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      -0.03333333258827527
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      -0.019999999552965164
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      -0.0066666665176550455
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      0.006666666517655059
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      0.019999999552965164
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      0.03333333258827528
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      0.0466666656235854
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      0.05999999865889549
+    ],
+    [
+      -0.013333333035310108,
+      0.0,
+      0.07333333169420561
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      -0.0733333316942056
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      -0.05999999865889549
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      -0.04666666562358538
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      -0.03333333258827527
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      -0.019999999552965164
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      -0.0066666665176550455
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      0.006666666517655059
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      0.019999999552965164
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      0.03333333258827528
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      0.0466666656235854
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      0.05999999865889549
+    ],
+    [
+      -0.013333333035310108,
+      0.011547005424896874,
+      0.07333333169420561
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      -0.0733333316942056
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      -0.05999999865889549
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      -0.04666666562358538
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      -0.03333333258827527
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      -0.019999999552965164
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      -0.0066666665176550455
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      0.006666666517655059
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      0.019999999552965164
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      0.03333333258827528
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      0.0466666656235854
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      0.05999999865889549
+    ],
+    [
+      0.0,
+      -0.011547005424896877,
+      0.07333333169420561
+    ],
+    [
+      0.0,
+      0.0,
+      -0.0733333316942056
+    ],
+    [
+      0.0,
+      0.0,
+      -0.05999999865889549
+    ],
+    [
+      0.0,
+      0.0,
+      -0.04666666562358538
+    ],
+    [
+      0.0,
+      0.0,
+      -0.03333333258827527
+    ],
+    [
+      0.0,
+      0.0,
+      -0.019999999552965164
+    ],
+    [
+      0.0,
+      0.0,
+      -0.0066666665176550455
+    ],
+    [
+      0.0,
+      0.0,
+      0.006666666517655059
+    ],
+    [
+      0.0,
+      0.0,
+      0.019999999552965164
+    ],
+    [
+      0.0,
+      0.0,
+      0.03333333258827528
+    ],
+    [
+      0.0,
+      0.0,
+      0.0466666656235854
+    ],
+    [
+      0.0,
+      0.0,
+      0.05999999865889549
+    ],
+    [
+      0.0,
+      0.0,
+      0.07333333169420561
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      -0.0733333316942056
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      -0.05999999865889549
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      -0.04666666562358538
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      -0.03333333258827527
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      -0.019999999552965164
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      -0.0066666665176550455
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      0.006666666517655059
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      0.019999999552965164
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      0.03333333258827528
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      0.0466666656235854
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      0.05999999865889549
+    ],
+    [
+      0.0,
+      0.011547005424896874,
+      0.07333333169420561
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      -0.0733333316942056
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      -0.05999999865889549
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      -0.04666666562358538
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      -0.03333333258827527
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      -0.019999999552965164
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      -0.0066666665176550455
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      0.006666666517655059
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      0.019999999552965164
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      0.03333333258827528
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      0.0466666656235854
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      0.05999999865889549
+    ],
+    [
+      0.013333333035310112,
+      -0.011547005424896877,
+      0.07333333169420561
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      -0.0733333316942056
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      -0.05999999865889549
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      -0.04666666562358538
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      -0.03333333258827527
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      -0.019999999552965164
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      -0.0066666665176550455
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      0.006666666517655059
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      0.019999999552965164
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      0.03333333258827528
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      0.0466666656235854
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      0.05999999865889549
+    ],
+    [
+      0.013333333035310112,
+      0.0,
+      0.07333333169420561
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      -0.0733333316942056
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      -0.05999999865889549
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      -0.04666666562358538
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      -0.03333333258827527
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      -0.019999999552965164
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      -0.0066666665176550455
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      0.006666666517655059
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      0.019999999552965164
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      0.03333333258827528
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      0.0466666656235854
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      0.05999999865889549
+    ],
+    [
+      0.013333333035310112,
+      0.011547005424896874,
+      0.07333333169420561
+    ]
+  ],
+  "pose6d_feasible_target_forbidden_sdf_proxy_radii_m": [
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594,
+    0.011055415798869594
+  ],
+  "pose6d_feasible_target_translation_mode": "random_axis",
+  "pose6d_feasible_target_object_long_axis": "y",
+  "pose6d_feasible_target_short_axis_fraction": 1.0,
+  "pose6d_feasible_target_resample_rotation_each_attempt": true,
+  "pose6d_feasible_target_graspable_long_axis_min_m": null,
+  "pose6d_feasible_target_graspable_long_axis_max_m": null,
+  "pose6d_feasible_target_reset_exclude_head_enabled": false,
+  "pose6d_feasible_target_reset_head_grasp_fraction": null,
+  "min_cube_palm_x": -10.0,
+  "max_cube_palm_x": 10.0,
+  "max_cube_abs_y": 10.0,
+  "max_cube_abs_z": 10.0,
+  "min_cube_world_z": 0.2,
+  "hora_rotation_axis": "z",
+  "hora_rotation_axis_frame": "world",
+  "hora_rotation_axis_sign": 1.0,
+  "dexndm_reward_mode": true,
+  "dexndm_randomize_rot_dir": false,
+  "dexndm_force_rot_axis": false,
+  "dexndm_forced_rot_axis_random_sign": false,
+  "dexndm_forced_rot_axis_x": 0.0,
+  "dexndm_forced_rot_axis_y": 0.0,
+  "dexndm_forced_rot_axis_z": 1.0,
+  "dexndm_omni_wrist_ornt": true,
+  "dexndm_omni_wrist_reset_pos_dist_m": 0.06,
+  "dexndm_torque_control": true,
+  "dexndm_torque_control_gain_source": "default_joint_pd",
+  "dexndm_torque_control_velocity_source": "joint_vel",
+  "dexndm_controller_pgain": 3.0,
+  "dexndm_controller_dgain": 0.1,
+  "dexndm_torque_limit": -1.0,
+  "dexndm_torque_pd_gain_randomization_enabled": true,
+  "dexndm_torque_pd_p_scale_range": [
+    0.5,
+    2.0
+  ],
+  "dexndm_torque_pd_d_scale_range": [
+    0.5,
+    2.0
+  ],
+  "dexndm_low_gain_drive_enabled": false,
+  "dexndm_low_gain_drive_stiffness": 3.0,
+  "dexndm_low_gain_drive_damping": 0.1,
+  "dexndm_low_gain_drive_effort_limit_sim": 0.5,
+  "dexndm_torque_penalty_scale": 0.1,
+  "dexndm_work_penalty_scale": 0.15,
+  "dexndm_twist_torque_work_penalty_enabled": true,
+  "dexndm_contact_gated_excess_load_penalty_enabled": false,
+  "dexndm_contact_gated_excess_load_penalty_scale": 0.0,
+  "dexndm_contact_gated_excess_load_reference_lead_rad": 0.08726646259971647,
+  "dexndm_contact_gated_excess_load_contact_threshold_n": 0.05,
+  "dexndm_contact_gated_excess_load_normalized_clip": 3.0,
+  "dexndm_grasp_wrench_maintenance_reward_enabled": true,
+  "dexndm_grasp_wrench_maintenance_reward_scale": 0.0512,
+  "dexndm_grasp_wrench_contact_on_n": 0.05,
+  "dexndm_grasp_wrench_contact_sat_n": 0.15,
+  "dexndm_grasp_wrench_elastomer_friction": 0.25,
+  "dexndm_grasp_wrench_dp_friction": 0.05,
+  "dexndm_grasp_wrench_body_mode": "all_collision_capped_secondary",
+  "dexndm_grasp_wrench_secondary_friction": 0.05,
+  "dexndm_grasp_wrench_secondary_confidence_cap": 0.25,
+  "dexndm_grasp_wrench_secondary_group_confidence_cap": 0.25,
+  "dexndm_grasp_wrench_spatial_dedup_distance_m": 0.003,
+  "dexndm_grasp_wrench_reset_warmup_steps": 4,
+  "dexndm_grasp_wrench_quality_floor": 0.08,
+  "dexndm_grasp_wrench_quality_cap": 0.35,
+  "dexndm_grasp_wrench_force_margin_erosion": 0.0,
+  "dexndm_grasp_wrench_torque_margin_erosion": 0.0,
+  "dexndm_grasp_wrench_softmin_power": 8.0,
+  "dexndm_rotp_enabled": false,
+  "dexndm_rotp_coef": 0.1,
+  "dexndm_rotp_warmup_resets": 10,
+  "dexndm_rotp_increase_resets": 100,
+  "dexndm_guided_rotation_obs_enabled": true,
+  "dexndm_guided_rotation_delta_deg": 90.0,
+  "dexndm_twist_reward_variant": "basic_pose_error",
+  "success_bonus": 45.0,
+  "drop_penalty": -80.0,
+  "action_penalty_scale": 0.0,
+  "joint_vel_penalty_scale": 0.0,
+  "twist_progress_reward_scale": 50.0,
+  "twist_progress_clip_rad": 0.00872665,
+  "twist_remaining_reward_scale": 0.5,
+  "twist_remaining_reward_temperature_rad": 0.174533,
+  "twist_position_drift_penalty_scale": 20.0,
+  "twist_swing_drift_penalty_scale": 1.0,
+  "twist_swing_soft_barrier_rad": 0.0,
+  "twist_swing_barrier_penalty_scale": 0.0,
+  "twist_near_success_swing_margin_enabled": false,
+  "twist_overshoot_penalty_scale": 0.0,
+  "pose6d_translation_progress_reward_scale": 300.0,
+  "pose6d_translation_progress_clip_m": 0.0015,
+  "pose6d_translation_remaining_reward_scale": 0.3,
+  "pose6d_translation_remaining_reward_temperature_m": 0.006,
+  "pose6d_translation_orthogonal_drift_penalty_scale": 8.0,
+  "pose6d_translation_overshoot_penalty_scale": 0.0,
+  "basic_pose_position_reward_scale": 0.25,
+  "basic_pose_position_reward_temperature_m": 0.015,
+  "basic_pose_position_orientation_gate_enabled": true,
+  "basic_pose_position_orientation_gate_tight_threshold_rad": 0.436332,
+  "basic_pose_position_orientation_gate_loose_threshold_rad": 0.785398,
+  "basic_pose_position_orientation_gate_loose_weight": 0.15,
+  "basic_pose_position_orientation_gate_mid_weight": 0.4,
+  "basic_pose_position_orientation_gate_tight_weight": 1.0,
+  "basic_pose_position_orientation_gate_loose_temperature_m": 0.03,
+  "basic_pose_position_orientation_gate_mid_temperature_m": 0.02,
+  "basic_pose_position_orientation_gate_tight_temperature_m": 0.015,
+  "basic_pose_orientation_reward_scale": 0.1666666667,
+  "basic_pose_orientation_reward_temperature_rad": 0.5235987756,
+  "basic_pose_position_error_penalty_scale": 0.0,
+  "basic_pose_orientation_error_penalty_scale": 0.0,
+  "near_success_bonus": 0.5,
+  "near_success_steps_reward_scale": 0.0,
+  "near_success_steps_reward_power": 2.0,
+  "success_hold_bonus": 0.0,
+  "sharpa_deployable_gravity_palm_obs_enabled": true,
+  "target_mode": "hand_frame_twist_translate",
+  "tactile_hold_probability": 0.005,
+  "tactile_contact_capacity": 64
+}

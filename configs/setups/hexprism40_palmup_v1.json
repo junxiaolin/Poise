@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "hexprism40_palmup_v1",
+  "status": "private_staging",
+  "description": "Fixed palm-up Sharpa Wave, HexPrism40",
+  "hand": "sharpa_wave_right",
+  "recipe": {
+    "name": "hexprism40_palmup_v1",
+    "sha256": "49abfc469333c619ade7bf301e5c8fbd9a5b94fd80420b1970ad7019e335695e",
+    "origin": "docs/baselines/hexprism40_palmup_v0/env.json",
+    "origin_sha256": "49abfc469333c619ade7bf301e5c8fbd9a5b94fd80420b1970ad7019e335695e"
+  },
+  "ppo": {
+    "name": "ppo",
+    "sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef"
+  },
+  "assets_manifest": "manifests/setups/hexprism40_palmup_v1.json",
+  "assets_manifest_sha256": "6a0286a7d3468b92455ef56219cf7f7c21d2d773a133d383cdc0fbdaa6d0b1ae",
+  "objects": [
+    {
+      "id": "regular_hex_prism_af40mm_h40mm_chamfered",
+      "dimensions_m": [
+        0.04561066818,
+        0.04,
+        0.04
+      ],
+      "shape": "hex_prism",
+      "cache": "data/stable_grasps/sharpa_manual_hex_prisms/usda09/regular_hex_prism_af40mm_h40mm_chamfered_hb1wave14_usda09_lightning711_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.usda",
+      "cache_rows": 6842
+    }
+  ],
+  "reference_checkpoint": {
+    "path": "data/checkpoints/hexprism40_palmup_v1/model_31200.pt",
+    "sha256": "f801420829d6d92a31c7cf0a634a7d893e8211b89dcaac744d46be00591da87c",
+    "iteration": 31200,
+    "status": "internal_candidate",
+    "source_record": "docs/baselines/hexprism40_palmup_v0/manifest.json"
+  },
+  "rollout": {
+    "config": "configs/rollout/hexprism40_palmup_v1.json",
+    "sha256": "4dd05b25cd13680d105b7b046cfa456d69ae2a18f739480b67a8fa2e4b246caa"
+  },
+  "training": {
+    "seed": 42,
+    "iterations": 150000,
+    "envs_per_rank": 32000,
+    "world_size": 2,
+    "physical_gpus": 2,
+    "backend": "gloo",
+    "global_frontier_min": 20000,
+    "smoke_num_envs": 8,
+    "smoke_iterations": 2
+  }
+}

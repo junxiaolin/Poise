@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "purpose": "Qualitative continuous-target rollout; not the archived first-target benchmark",
+  "overrides": {
+    "twist_target_sampling_mode": "full_range_uniform",
+    "twist_target_uniform_min_rad": 0.0,
+    "twist_target_uniform_max_rad": 3.141592653589793,
+    "pose6d_translation_sampling_mode": "full_range_uniform",
+    "pose6d_translation_uniform_min_m": 0.0,
+    "pose6d_translation_uniform_max_m": 0.03,
+    "twist_target_curriculum_enabled": false,
+    "chain_post_success_target_curriculum_enabled": false,
+    "pose6d_translation_curriculum_enabled": false,
+    "chain_pose6d_translation_curriculum_enabled": false,
+    "multiobject_per_object_curriculum_enabled": false,
+    "curriculum_distributed_sync_enabled": false,
+    "adaptive_frontier_soft_promotion_enabled": false,
+    "twist_target_refresh_on_success": true,
+    "random_external_force_enabled": false,
+    "object_scale_randomization_enabled": false,
+    "object_mass_randomization_enabled": false,
+    "object_com_randomization_enabled": false,
+    "object_friction_randomization_enabled": false,
+    "object_nearcube_geometry_randomization_enabled": false,
+    "object_inertia_compound_multiplier_randomization_enabled": false,
+    "object_inertia_real_to_legacy_randomization_enabled": false,
+    "dexndm_torque_pd_gain_randomization_enabled": false,
+    "dexndm_joint_noise_scale": 0.0,
+    "sharpa_deployable_joint_sensing_noise_scale": 0.0,
+    "sharpa_deployable_object_pose_obs_delay_noise_enabled": false,
+    "sharpa_deployable_object_pose_obs_pos_noise_std_m": 0.0,
+    "sharpa_deployable_object_pose_obs_rot_noise_deg": 0.0,
+    "sharpa_deployable_object_pose_obs_dropout_prob": 0.0
+  },
+  "seed": 42,
+  "num_envs": 4,
+  "steps": 400,
+  "notes": [
+    "Uniform target rotation 0..180 degrees; translation 0..30 mm.",
+    "No curriculum promotion; successful targets refresh.",
+    "Historical inertia log-uniform multiplier remains enabled."
+  ]
+}

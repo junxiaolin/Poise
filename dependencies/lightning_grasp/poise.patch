@@ -1,0 +1,615 @@
+diff --git a/lygra/batch_grasp_optimizer.py b/lygra/batch_grasp_optimizer.py
+index bdc496a..4a2933e 100644
+--- a/lygra/batch_grasp_optimizer.py
++++ b/lygra/batch_grasp_optimizer.py
+@@ -127,7 +127,11 @@ def compute_wrench_score_vectorized(
+     contact_normal, 
+     valid_mask=None, 
+     init_sol=None, 
+-    wrench_alpha=10
++    wrench_alpha=10,
++    external_force=None,
++    external_force_pos=None,
++    external_torque=None,
++    return_best_solution=False
+ ):
+     '''
+     Args:
+@@ -145,18 +149,36 @@ def compute_wrench_score_vectorized(
+     contact_pos = contact_pos.reshape(-1, n, 3)
+     contact_normal = contact_normal.reshape(-1, n, 3)
+ 
++    if external_force is None:
++        external_force = torch.zeros(contact_pos.shape[0], 3, device=contact_pos.device, dtype=contact_pos.dtype)
++    else:
++        external_force = external_force.reshape(-1, 3).to(device=contact_pos.device, dtype=contact_pos.dtype)
++
++    if external_force_pos is None:
++        external_force_pos = torch.zeros_like(external_force)
++    else:
++        external_force_pos = external_force_pos.reshape(-1, 3).to(device=contact_pos.device, dtype=contact_pos.dtype)
++
++    if external_torque is None:
++        external_torque = torch.zeros_like(external_force)
++    else:
++        external_torque = external_torque.reshape(-1, 3).to(device=contact_pos.device, dtype=contact_pos.dtype)
++
+     all_A = []
+     all_b = []
+ 
+     for i in range(n):
+-        b_nf = - contact_normal[:, 0, :]
++        b_nf = - contact_normal[:, 0, :] - external_force
+         A_nf = contact_normal[:, 1:, :].permute(0, 2, 1)            # [b, 3, n]
+         
+         x = contact_pos[:, 1:, :] - contact_pos[:, 0:1, :]
+         f_unit = contact_normal[:, 1:, :]
+         wrench = torch.cross(x, f_unit, dim=-1).permute(0, 2, 1)    # [b, 3, n] 
+ 
+-        b_nw = torch.zeros_like(b_nf)
++        external_torque_about_pivot = external_torque + torch.cross(
++            external_force_pos - contact_pos[:, 0, :], external_force, dim=-1
++        )
++        b_nw = -external_torque_about_pivot * wrench_alpha
+         A_nw = wrench * wrench_alpha
+ 
+         A = torch.cat((A_nf, A_nw), dim=1)          # [b, 6, n-1]
+@@ -188,8 +210,41 @@ def compute_wrench_score_vectorized(
+         # fill the invalid score with a large value.  
+         score = score * valid_mask + 1e10 * torch.ones_like(score) * (1 - valid_mask)
+     
+-    best_score = torch.min(score, dim=-1).values
+-    return best_score.view(*leading_shape), sol
++    best_score, best_pivot_idx = torch.min(score, dim=-1)
++    if not return_best_solution:
++        return best_score.view(*leading_shape), sol
++
++    sol_by_pivot = sol.view(-1, n, n - 1)
++    batch_idx = torch.arange(sol_by_pivot.shape[0], device=sol_by_pivot.device)
++    best_sol = sol_by_pivot[batch_idx, best_pivot_idx]
++
++    other_idx = []
++    for pivot_idx in range(n):
++        other_idx.append(
++            torch.cat(
++                (
++                    torch.arange(pivot_idx + 1, n, device=sol.device),
++                    torch.arange(0, pivot_idx, device=sol.device),
++                )
++            )
++        )
++    other_idx = torch.stack(other_idx, dim=0)
++    best_other_idx = other_idx[best_pivot_idx]
++
++    contact_force_coeff = torch.zeros(
++        sol_by_pivot.shape[0], n, device=contact_pos.device, dtype=contact_pos.dtype
++    )
++    contact_force_coeff.scatter_(1, best_other_idx, best_sol)
++    contact_force_coeff.scatter_(1, best_pivot_idx.view(-1, 1), 1.0)
++    if valid_mask is not None:
++        contact_force_coeff = contact_force_coeff * valid_mask.view(-1, n)
++
++    best_solution = {
++        "best_pivot_idx": best_pivot_idx.view(*leading_shape),
++        "best_sol": best_sol.view(*leading_shape, n - 1),
++        "contact_force_coeff": contact_force_coeff.view(*leading_shape, n),
++    }
++    return best_score.view(*leading_shape), sol, best_solution
+ 
+ 
+ # Compute pairwise distances using broadcasting:
+@@ -266,7 +321,10 @@ def optimize_step(
+     init_nnls_sol=None,
+     extra_contact_pos=None,
+     extra_contact_normal=None,
+-    extra_contact_mask=None
++    extra_contact_mask=None,
++    external_force=None,
++    external_force_pos=None,
++    external_torque=None
+ ):
+     '''
+     Args:
+@@ -304,11 +362,21 @@ def optimize_step(
+                 torch.cat((contact_pos, extra_contact_pos), dim=-2), 
+                 torch.cat((contact_normal, extra_contact_normal), dim=-2),
+                 extra_contact_mask.contiguous(),
+-                init_sol=init_nnls_sol
++                init_sol=init_nnls_sol,
++                external_force=external_force,
++                external_force_pos=external_force_pos,
++                external_torque=external_torque
+             )
+ 
+         else:
+-            best_score, nnls_sol = compute_wrench_score_vectorized(contact_pos, contact_normal)
++            best_score, nnls_sol = compute_wrench_score_vectorized(
++                contact_pos,
++                contact_normal,
++                init_sol=init_nnls_sol,
++                external_force=external_force,
++                external_force_pos=external_force_pos,
++                external_torque=external_torque
++            )
+ 
+     else:
+         nnls_sol = None
+@@ -338,11 +406,21 @@ def optimize_step(
+                 torch.cat((next_contact_pos, extra_contact_pos), dim=-2), 
+                 torch.cat((next_contact_normal, extra_contact_normal), dim=-2),
+                 extra_contact_mask,
+-                init_sol=nnls_sol
++                init_sol=nnls_sol,
++                external_force=external_force,
++                external_force_pos=external_force_pos,
++                external_torque=external_torque
+             )
+ 
+         else:
+-            score, _ = compute_wrench_score_vectorized(next_contact_pos, next_contact_normal)
++            score, _ = compute_wrench_score_vectorized(
++                next_contact_pos,
++                next_contact_normal,
++                init_sol=nnls_sol,
++                external_force=external_force,
++                external_force_pos=external_force_pos,
++                external_torque=external_torque
++            )
+ 
+         improve_idx = torch.where(score < best_score)
+         best_score[improve_idx] = score[improve_idx]
+@@ -366,7 +444,10 @@ def optimize(
+     zo_lr=0.005,
+     extra_contact_pos=None,
+     extra_contact_normal=None,
+-    extra_contact_mask=None
++    extra_contact_mask=None,
++    external_force=None,
++    external_force_pos=None,
++    external_torque=None
+ ):
+     """
+     Args:
+@@ -398,13 +479,37 @@ def optimize(
+                 init_nnls_sol=init_nnls_sol,
+                 extra_contact_pos=extra_contact_pos,
+                 extra_contact_normal=extra_contact_normal,
+-                extra_contact_mask=extra_contact_mask
++                extra_contact_mask=extra_contact_mask,
++                external_force=external_force,
++                external_force_pos=external_force_pos,
++                external_torque=external_torque
+             )
+             init_nnls_sol = nnls_sol
+ 
+-    score, _ = compute_wrench_score_vectorized(contact_pos, contact_normal)
++    if extra_contact_pos is not None:
++        full_contact_mask = torch.cat(
++            (torch.ones(*contact_pos.shape[:-1]).to(extra_contact_mask.device), extra_contact_mask), dim=-1
++        )
++        score, _, wrench_solution = compute_wrench_score_vectorized(
++            torch.cat((contact_pos, extra_contact_pos), dim=-2),
++            torch.cat((contact_normal, extra_contact_normal), dim=-2),
++            full_contact_mask.contiguous(),
++            external_force=external_force,
++            external_force_pos=external_force_pos,
++            external_torque=external_torque,
++            return_best_solution=True
++        )
++    else:
++        score, _, wrench_solution = compute_wrench_score_vectorized(
++            contact_pos,
++            contact_normal,
++            external_force=external_force,
++            external_force_pos=external_force_pos,
++            external_torque=external_torque,
++            return_best_solution=True
++        )
+ 
+-    return contact_pos, contact_normal, contact_point_idx, score
++    return contact_pos, contact_normal, contact_point_idx, score, wrench_solution
+ 
+ 
+ def batch_sample_domain_data(B_prime, X, X_idx=None):
+@@ -460,7 +565,7 @@ class BatchedZerothOrderKinematicGraspOptimizer:
+         }
+ 
+     def optimize(self, solution, condition={}, step=20, zo_step=6, zo_lr=0.005):
+-        contact_pos, contact_normal, contact_point_idx, score = optimize(
++        contact_pos, contact_normal, contact_point_idx, score, wrench_solution = optimize(
+             solution["contact_pos"],
+             solution["contact_normal"],
+             solution["contact_point_idx"],
+@@ -471,13 +576,22 @@ class BatchedZerothOrderKinematicGraspOptimizer:
+             extra_contact_pos=condition.get("extra_contact_pos", None),
+             extra_contact_normal=condition.get("extra_contact_normal", None),
+             extra_contact_mask=condition.get("extra_contact_mask", None),
++            external_force=condition.get("external_force", None),
++            external_force_pos=condition.get("external_force_pos", None),
++            external_torque=condition.get("external_torque", None),
+             zo_step=zo_step,
+             zo_lr=zo_lr
+         )
+ 
+-        return {
++        result = {
+             "contact_pos": contact_pos,
+             "contact_normal": contact_normal,
+             "contact_point_idx": contact_point_idx,
+             "score": score 
+         }
++        if wrench_solution is not None:
++            result["wrench_best_pivot_idx"] = wrench_solution["best_pivot_idx"]
++            result["wrench_best_sol"] = wrench_solution["best_sol"]
++            result["contact_force_coeff_full"] = wrench_solution["contact_force_coeff"]
++            result["contact_force_coeff"] = wrench_solution["contact_force_coeff"][..., : contact_pos.shape[-2]]
++        return result
+diff --git a/lygra/kinematics.py b/lygra/kinematics.py
+index f554016..fb5f03e 100644
+--- a/lygra/kinematics.py
++++ b/lygra/kinematics.py
+@@ -16,6 +16,7 @@ from collections import defaultdict
+ import time 
+ from lygra.utils.robot_visualizer import RobotMesh
+ from lygra.utils.transform_utils import batch_axis_angle, batch_translation
++from lygra.urdf_utils import resolve_urdf_package_uris
+ from tqdm import tqdm 
+ from dataclasses import dataclass
+ 
+@@ -86,9 +87,7 @@ class KinematicsTree:
+ 
+     @staticmethod
+     def build_from_urdf(urdf_path, active_joint_names=None, actuated_joint_names=None):
+-        if isinstance(urdf_path, Path):
+-            urdf_path = urdf_path.as_posix()
+-
++        urdf_path = resolve_urdf_package_uris(urdf_path)
+         urdf = URDF.load(urdf_path)
+         tree = KinematicsTree()
+         for l in urdf.links:
+diff --git a/lygra/mesh.py b/lygra/mesh.py
+index 4a9def6..1b6c325 100644
+--- a/lygra/mesh.py
++++ b/lygra/mesh.py
+@@ -12,6 +12,7 @@ import numpy as np
+ import trimesh
+ from urdfpy import URDF
+ from pathlib import Path 
++from lygra.urdf_utils import resolve_urdf_package_uris
+ 
+ 
+ def trimesh_to_open3d(mesh: trimesh.Trimesh) -> o3d.geometry.TriangleMesh:
+@@ -24,6 +25,7 @@ def trimesh_to_open3d(mesh: trimesh.Trimesh) -> o3d.geometry.TriangleMesh:
+ 
+ class RobotMesh:
+     def __init__(self, robot_path, mesh_scale=1.0):
++        robot_path = resolve_urdf_package_uris(robot_path)
+         self.robot = URDF.load(robot_path)
+         self.robot_root = Path(robot_path).parent
+         self.collision_meshes = {}
+diff --git a/lygra/pipeline/module/collision.py b/lygra/pipeline/module/collision.py
+index cbc12b9..d9849aa 100644
+--- a/lygra/pipeline/module/collision.py
++++ b/lygra/pipeline/module/collision.py
+@@ -14,6 +14,7 @@ def batch_object_hand_collision_check(
+     tree,
+     object_point,
+     q=None,
++    default_q=None,
+     target_links=None,
+     hand_mesh_buffer=None,
+     mesh=None,
+@@ -41,7 +42,9 @@ def batch_object_hand_collision_check(
+         f_idx_tensor = torch.from_numpy(mesh['fi']).cuda().int()
+ 
+     if q is None:
+-        q = torch.from_numpy(tree.get_resting_q()).cuda() # use default. 
++        if default_q is None:
++            default_q = tree.get_resting_q()
++        q = torch.as_tensor(default_q, device=object_point.device, dtype=object_point.dtype)
+         q = q[None].expand(len(object_point), -1)
+ 
+     mesh_pose = batch_fk(tree, q)["link"]
+@@ -150,4 +153,3 @@ def batch_filter_collision(
+             result[k] = v[passed_idx]
+ 
+     return result
+-
+diff --git a/lygra/pipeline/module/contact_collection.py b/lygra/pipeline/module/contact_collection.py
+index 0dd9c39..3d2068d 100644
+--- a/lygra/pipeline/module/contact_collection.py
++++ b/lygra/pipeline/module/contact_collection.py
+@@ -4,6 +4,8 @@
+ # This source code is licensed under the license found in the
+ # LICENSE file in the root directory of this source tree.
+ 
++import sys
++
+ import torch 
+ from lygra import gem
+ from lygra.contact_set import get_dependency_matrix, get_link_dependency_matrix, sample_independent_set
+diff --git a/lygra/pipeline/module/contact_optimization.py b/lygra/pipeline/module/contact_optimization.py
+index 13bf8d4..b40f75b 100644
+--- a/lygra/pipeline/module/contact_optimization.py
++++ b/lygra/pipeline/module/contact_optimization.py
+@@ -19,7 +19,11 @@ def search_contact_point(
+     condition={},
+     zo_step=5,
+     zo_lr=0.005,
+-    threshold=0.15
++    threshold=0.15,
++    external_force_hand=None,
++    external_force_point_object=None,
++    external_torque_object=None,
++    return_wrench_info=False
+ ):
+     """
+     TODO: Wrap the score function & criterion into a class.
+@@ -43,6 +47,36 @@ def search_contact_point(
+         condition["extra_contact_normal"] = condition["extra_contact_normal"].unsqueeze(1).expand(-1, batch_size, -1, -1)
+         condition["extra_contact_mask"] = condition["extra_contact_mask"].unsqueeze(1).expand(-1, batch_size, -1)
+ 
++    if external_force_hand is not None:
++        external_force_hand = torch.as_tensor(
++            external_force_hand, device=object_poses.device, dtype=object_poses.dtype
++        )
++        if external_force_hand.ndim == 1:
++            external_force_hand = external_force_hand.view(1, 3).expand(object_poses.size(0), -1)
++
++        external_force_object = torch.bmm(
++            object_poses[:, :3, :3].transpose(1, 2),
++            external_force_hand.unsqueeze(-1)
++        ).squeeze(-1)
++        condition["external_force"] = external_force_object.unsqueeze(1).expand(-1, batch_size, -1)
++
++        if external_force_point_object is None:
++            external_force_point_object = torch.zeros(3, device=object_poses.device, dtype=object_poses.dtype)
++        external_force_point_object = torch.as_tensor(
++            external_force_point_object, device=object_poses.device, dtype=object_poses.dtype
++        )
++        condition["external_force_pos"] = external_force_point_object.view(1, 1, 3).expand(
++            object_poses.size(0), batch_size, -1
++        )
++
++        if external_torque_object is not None:
++            external_torque_object = torch.as_tensor(
++                external_torque_object, device=object_poses.device, dtype=object_poses.dtype
++            )
++            condition["external_torque"] = external_torque_object.view(1, 1, 3).expand(
++                object_poses.size(0), batch_size, -1
++            )
++
+     solution = optimizer.optimize(solution, condition=condition, step=zo_step, zo_lr=zo_lr)
+ 
+     object_pose_idx, grasp_idx = torch.where(solution["score"] < threshold)
+@@ -65,5 +99,26 @@ def search_contact_point(
+             success_object_pose[:, :3, :3].permute(0, 2, 1)
+         )
+ 
+-    return  success_contact_pos, success_contact_normal, success_contact_point_idx, \
+-            success_object_pose, success_contact_ids, object_pose_idx
++    result = (
++        success_contact_pos,
++        success_contact_normal,
++        success_contact_point_idx,
++        success_object_pose,
++        success_contact_ids,
++        object_pose_idx,
++    )
++    if not return_wrench_info:
++        return result
++
++    wrench_info = {}
++    for key in (
++        "wrench_best_pivot_idx",
++        "wrench_best_sol",
++        "contact_force_coeff",
++        "contact_force_coeff_full",
++    ):
++        if key in solution:
++            wrench_info[key] = solution[key][object_pose_idx, grasp_idx]
++    if "score" in solution:
++        wrench_info["wrench_score"] = solution["score"][object_pose_idx, grasp_idx]
++    return result + (wrench_info,)
+diff --git a/lygra/pipeline/module/kinematics.py b/lygra/pipeline/module/kinematics.py
+index 6a171c1..beca62e 100644
+--- a/lygra/pipeline/module/kinematics.py
++++ b/lygra/pipeline/module/kinematics.py
+@@ -27,7 +27,8 @@ def batch_ik(
+     err_thresh=0.02,
+     max_iter=12,
+     step_size=0.4,
+-    filter=True
++    filter=True,
++    extra_result=None
+ ):
+     batch_size = contact_ids.shape[0]
+     contact_link_ids = contact_parent_ids[contact_ids]  # [batch, n_contact]
+@@ -79,6 +80,10 @@ def batch_ik(
+             "contact_normal":   contact_normal_in_linkf,
+             "contact_link_id":  contact_link_ids
+         }
++
++    if extra_result is not None:
++        for k, v in extra_result.items():
++            result[k] = v[success_idx] if filter else v
+     return result
+ 
+ 
+@@ -101,7 +106,8 @@ def batch_contact_adjustment(
+     projection_orientation_weight=0.01,
+     error_tolerance=0.004,
+     ik_step_size=0.4,
+-    ik_regularization=2e-4
++    ik_regularization=2e-4,
++    extra_result=None
+ ):
+     batch_size = contact_ids.shape[0]
+ 
+@@ -199,6 +205,10 @@ def batch_contact_adjustment(
+         
+     }
+ 
++    if extra_result is not None:
++        for k, v in extra_result.items():
++            result[k] = v[success_idx]
++
+     if ret_mesh_buffer:
+         result["mesh_buffer"] = {
+             "v": v_tensor,
+@@ -207,4 +217,4 @@ def batch_contact_adjustment(
+             "vi": v_idx_tensor,
+             "fi": f_idx_tensor
+         }
+-    return result
+\ No newline at end of file
++    return result
+diff --git a/lygra/urdf_utils.py b/lygra/urdf_utils.py
+new file mode 100644
+index 0000000..f49a77a
+--- /dev/null
++++ b/lygra/urdf_utils.py
+@@ -0,0 +1,143 @@
++import hashlib
++import json
++import os
++import tempfile
++import xml.etree.ElementTree as ET
++from pathlib import Path
++
++
++PACKAGE_URI_PREFIX = "package://"
++RESOLVER_VERSION = b"2"
++
++
++def _resolve_package_uri(uri, urdf_path):
++    package_path = uri[len(PACKAGE_URI_PREFIX):]
++    package_name, separator, relative_path = package_path.partition("/")
++    if not separator or not package_name or not relative_path:
++        raise ValueError(f"Invalid URDF package URI: {uri}")
++
++    relative = Path(relative_path)
++    if relative.is_absolute() or ".." in relative.parts:
++        raise ValueError(f"Unsafe URDF package URI: {uri}")
++
++    urdf_dir = urdf_path.parent
++    candidates = []
++    for ancestor in (urdf_dir, *urdf_dir.parents):
++        if ancestor.name == package_name:
++            candidates.append(ancestor / relative)
++        candidates.append(ancestor / package_name / relative)
++
++    for candidate in candidates:
++        if candidate.is_file():
++            return candidate.resolve()
++
++    raise FileNotFoundError(
++        f"Could not resolve {uri!r} referenced by {urdf_path}. "
++        f"Expected package {package_name!r} near the URDF."
++    )
++
++
++def resolve_urdf_package_uris(urdf_path):
++    """Return a URDF path whose package:// resources are absolute paths."""
++    source_path = Path(urdf_path).expanduser().resolve()
++    if not source_path.is_file():
++        raise FileNotFoundError(f"URDF does not exist: {source_path}")
++
++    source_bytes = source_path.read_bytes()
++    if PACKAGE_URI_PREFIX.encode() not in source_bytes:
++        return source_path.as_posix()
++
++    root = ET.fromstring(source_bytes)
++    changed = False
++    for element in root.iter():
++        for attribute in ("filename", "url"):
++            value = element.attrib.get(attribute)
++            if value and value.startswith(PACKAGE_URI_PREFIX):
++                element.set(
++                    attribute,
++                    _resolve_package_uri(value, source_path).as_posix(),
++                )
++                changed = True
++
++    for joint in root.findall("joint"):
++        if joint.attrib.get("type") != "fixed":
++            continue
++        axis = joint.find("axis")
++        if axis is not None and axis.attrib.get("xyz") == "0 0 0":
++            axis.set("xyz", "0 0 1")
++            changed = True
++
++    if not changed:
++        return source_path.as_posix()
++
++    digest = hashlib.sha256(RESOLVER_VERSION + source_bytes).hexdigest()[:16]
++    cache_dir = Path(tempfile.gettempdir()) / "lightning_grasp_resolved_urdf"
++    cache_dir.mkdir(parents=True, exist_ok=True)
++    resolved_path = cache_dir / f"{source_path.stem}-{digest}.urdf"
++
++    if not resolved_path.exists():
++        temporary_path = resolved_path.with_suffix(f".{os.getpid()}.tmp")
++        ET.ElementTree(root).write(
++            temporary_path,
++            encoding="utf-8",
++            xml_declaration=True,
++        )
++        os.replace(temporary_path, resolved_path)
++
++    return resolved_path.as_posix()
++
++
++def override_urdf_joint_limits(urdf_path, joint_limits, profile_name):
++    """Return a cached URDF with the requested revolute joint limits."""
++    resolved_source = Path(resolve_urdf_package_uris(urdf_path))
++    source_bytes = resolved_source.read_bytes()
++    root = ET.fromstring(source_bytes)
++    joints = {
++        joint.attrib["name"]: joint
++        for joint in root.findall("joint")
++        if "name" in joint.attrib
++    }
++
++    missing = sorted(set(joint_limits) - set(joints))
++    if missing:
++        raise ValueError(
++            f"Joint-limit profile {profile_name!r} contains unknown joints: {missing}"
++        )
++
++    for joint_name, (lower, upper) in joint_limits.items():
++        if lower > upper:
++            raise ValueError(
++                f"Invalid limits for {joint_name}: lower {lower} > upper {upper}"
++            )
++        limit = joints[joint_name].find("limit")
++        if limit is None:
++            raise ValueError(f"Joint {joint_name!r} has no <limit> element")
++        limit.set("lower", f"{lower:.10g}")
++        limit.set("upper", f"{upper:.10g}")
++
++    profile_bytes = json.dumps(
++        {
++            name: [float(bounds[0]), float(bounds[1])]
++            for name, bounds in sorted(joint_limits.items())
++        },
++        sort_keys=True,
++    ).encode()
++    digest = hashlib.sha256(
++        RESOLVER_VERSION + source_bytes + profile_name.encode() + profile_bytes
++    ).hexdigest()[:16]
++    cache_dir = Path(tempfile.gettempdir()) / "lightning_grasp_resolved_urdf"
++    cache_dir.mkdir(parents=True, exist_ok=True)
++    output_path = cache_dir / (
++        f"{resolved_source.stem}-{profile_name}-{digest}.urdf"
++    )
++
++    if not output_path.exists():
++        temporary_path = output_path.with_suffix(f".{os.getpid()}.tmp")
++        ET.ElementTree(root).write(
++            temporary_path,
++            encoding="utf-8",
++            xml_declaration=True,
++        )
++        os.replace(temporary_path, output_path)
++
++    return output_path.as_posix()

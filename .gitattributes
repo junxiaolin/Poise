@@ -1,0 +1,2 @@
+# Preserve the checksum-pinned upstream patch, including whitespace in diff context.
+dependencies/lightning_grasp/poise.patch -whitespace

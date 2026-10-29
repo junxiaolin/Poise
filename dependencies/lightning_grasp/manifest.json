@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/zhaohengyin/lightning-grasp.git",
+  "revision": "af43818e864b0389c97b73429e5e60de2a2de593",
+  "license": "CC-BY-NC-4.0",
+  "patch": {
+    "file": "poise.patch",
+    "sha256": "eb6f4fc78c73dbadaf5ec9b7bdbc3c17e1c768220f2a1f2c626e7669bc546fc7",
+    "source_repository": "https://github.com/ZJU-jxlin/lightning-grasp-sharpa",
+    "source_revision": "802d1f428fda0164127c62206cae7cad18b1fecd",
+    "files": [
+      "lygra/batch_grasp_optimizer.py",
+      "lygra/kinematics.py",
+      "lygra/mesh.py",
+      "lygra/pipeline/module/collision.py",
+      "lygra/pipeline/module/contact_collection.py",
+      "lygra/pipeline/module/contact_optimization.py",
+      "lygra/pipeline/module/kinematics.py",
+      "lygra/urdf_utils.py"
+    ]
+  },
+  "kernels": {
+    "url": "https://github.com/zhaohengyin/lightning-grasp/releases/download/v1.0.0/lygra_kernel_py39_cu126.zip",
+    "sha256": "ec72b919d8ff74742e8371dc2a02b26a2c3fc326c4d91b08fd2d0b55f45cdac1",
+    "python": "3.9",
+    "torch": "2.8.0+cu126",
+    "platform": "linux-x86_64"
+  },
+  "patched_source_sha256": {
+    "lygra/batch_grasp_optimizer.py": "cc2d5f6fc7ffe869451eb8b656dab5eaeda52bf4eb7486629049b89b4c5856ff",
+    "lygra/kinematics.py": "1402899c8696febb70b410519c41a04610af49c30b51a489fda36720606543d9",
+    "lygra/mesh.py": "282e7c3553e4e1e523450ce0e95f663faa6a0e368b9e708dc505149a6bd76e3e",
+    "lygra/pipeline/module/collision.py": "89671d3515cc704dbfcf3153371baef09d00ac0775745d5e0e42189f9c221a49",
+    "lygra/pipeline/module/contact_collection.py": "ad1828256b7fb46a685d3bd4516c94e50e1da1acf0f7ec5e4df126ff9553df91",
+    "lygra/pipeline/module/contact_optimization.py": "6c3672a4c44a394862e8c7dafc538c7082eb04ef83f00ac9f777329f4b780810",
+    "lygra/pipeline/module/kinematics.py": "ec0a82edee1d8842713f32fb668db61bae5d253c4ebf243d9f787da38b4eac5c",
+    "lygra/urdf_utils.py": "c7409a0243a31033bd3670f20c40b1f714505c37cb68068b4fbe7bdb53426d2f"
+  }
+}

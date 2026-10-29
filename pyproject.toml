@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "poise"
+version = "0.1.0rc1"
+description = "Palm-relative object reaching with the Sharpa Wave hand"
+readme = "README.md"
+license = {file = "LICENSE"}
+requires-python = ">=3.9"
+dependencies = ["torch>=2.6,<2.9", "numpy>=1.23,<3"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "opencv-contrib-python>=4.8,<4.12", "trimesh>=4,<5"]
+train = ["torch>=2.7,<2.8", "numpy>=1.26,<2", "rsl-rl-lib==3.0.1", "tensorboard>=2.14", "trimesh>=4,<5", "rtree>=1,<2"]
+deploy = ["opencv-contrib-python>=4.8,<4.12", "pyrealsense2>=2.55", "trimesh>=4,<5"]
+
+[project.scripts]
+poise = "poise.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["source"]
+
+[tool.setuptools.package-data]
+"poise.sim.recipes" = ["*.json"]
+"poise.grasp.lightning" = ["LICENSE"]
+"poise.deploy.configs" = ["*.json"]
+"poise.assets.sharpa_wave" = ["*.json", "*.usda"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["source"]

@@ -1,0 +1,13 @@
+{
+  "rank": 0,
+  "world_size": 8,
+  "device": "cuda:0",
+  "seed": 42,
+  "base_seed": 42,
+  "envs_per_rank": 24000,
+  "total_envs": 192000,
+  "backend": "gloo",
+  "curriculum_sync": true,
+  "curriculum_scope": "shared",
+  "global_frontier_min": 160000
+}

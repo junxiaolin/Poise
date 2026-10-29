@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "confirmed_on": "2026-10-09",
+  "authorization_source": "Repository owner confirmed authority to distribute Poise-authored and AP2AP-migrated code, authored object assets, grasp caches and reference checkpoints in the development conversation.",
+  "code_license": "MIT",
+  "authored_asset_license": "CC-BY-4.0",
+  "public_release_authorized": false,
+  "components": [
+    {
+      "paths": [
+        "source/poise/**",
+        "scripts/**",
+        "configs/**",
+        "tests/**",
+        "docs/**"
+      ],
+      "license": "MIT",
+      "exceptions": [
+        "source/poise/grasp/lightning/**",
+        "dependencies/lightning_grasp/poise.patch",
+        "third-party assets and notices"
+      ],
+      "evidence": "owner confirmation; manifests/migration.csv"
+    },
+    {
+      "paths": [
+        "source/poise/grasp/lightning/**",
+        "dependencies/lightning_grasp/poise.patch"
+      ],
+      "license": "CC-BY-NC-4.0",
+      "copyright": "Zhao-Heng Yin; Poise modifications",
+      "evidence": "dependencies/lightning_grasp/manifest.json"
+    },
+    {
+      "paths": [
+        "data/robots/sharpa_wave/**"
+      ],
+      "license": "Apache-2.0 upstream; MIT Poise composition layers",
+      "evidence": "source/poise/assets/sharpa_wave/manifest.json"
+    },
+    {
+      "paths": [
+        "data/objects/**",
+        "data/stable_grasps/**",
+        "data/geometry_latents/**",
+        "data/checkpoints/**"
+      ],
+      "license": "CC-BY-4.0",
+      "evidence": "owner distribution confirmation; per-file setup hashes"
+    },
+    {
+      "paths": [
+        "data/hand_fields/**",
+        "data/robots/sharpa_limits/**"
+      ],
+      "license": "Apache-2.0 upstream source terms retained; CC-BY-4.0 Poise additions",
+      "evidence": "Sharpa provenance; owner confirmation"
+    },
+    {
+      "paths": [
+        "third_party/FoundationPose/**"
+      ],
+      "license": "upstream non-commercial research/evaluation terms; not bundled",
+      "evidence": "https://raw.githubusercontent.com/NVlabs/FoundationPose/a1b694b83e633c2cb6115b9063d940a687759392/LICENSE"
+    }
+  ]
+}

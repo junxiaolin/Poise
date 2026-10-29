@@ -1,0 +1,96 @@
+{
+  "verified_utc": "2026-10-09T03:08:40.578130+00:00",
+  "setup_id": "hexhammer_palmup_fullpose_192k_v1",
+  "focused_tests": {
+    "command": "python -m pytest tests/test_setups.py tests/test_setup_assets.py -q",
+    "passed": 15
+  },
+  "assets": {
+    "setup": "hexhammer_palmup_fullpose_192k_v1",
+    "root": "<POISE_ROOT>",
+    "valid": true,
+    "files": 42,
+    "missing": [],
+    "changed": [],
+    "with_reference": true,
+    "cache_rows": {
+      "t_shape_hex_prism_hammer_chamfered": 11630
+    },
+    "checkpoint": {
+      "sha256": "5c6e3674b055574c8a75e5ac800d3534b29fa39ac3d9dbb7a5640dbb7e7180c2",
+      "reference": true,
+      "iteration": 89800,
+      "setup": "hexhammer_palmup_fullpose_192k_v1"
+    }
+  },
+  "reference_rollout": {
+    "steps": 64,
+    "num_envs": 4,
+    "terminations": 1,
+    "mean_reward": -0.2814367476894404,
+    "setup": {
+      "schema_version": 1,
+      "id": "hexhammer_palmup_fullpose_192k_v1",
+      "recipe_sha256": "f7ab0a6b0128a6427431a5090bffddb508b42bbc4e95e7a34b18557600b1d793",
+      "ppo_sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef",
+      "assets_manifest_sha256": "8bb014427e3c4176d6b30b49d056dbc43372e6fa6a70bd25edf877b7629c08f1",
+      "object_ids": [
+        "t_shape_hex_prism_hammer_chamfered"
+      ]
+    },
+    "checkpoint": {
+      "sha256": "5c6e3674b055574c8a75e5ac800d3534b29fa39ac3d9dbb7a5640dbb7e7180c2",
+      "reference": true,
+      "iteration": 89800,
+      "setup": "hexhammer_palmup_fullpose_192k_v1"
+    },
+    "purpose": "Qualitative continuous-target rollout at the saved full curriculum with training randomization and sensing noise retained; not a success-rate benchmark",
+    "object_ids": [
+      "t_shape_hex_prism_hammer_chamfered"
+    ]
+  },
+  "training_smoke": {
+    "num_envs": 8,
+    "completed_updates": 2,
+    "checkpoint": {
+      "sha256": "dea713251dfb3302873ff020a89dcb4ad73940291cf8906e73db73fa2dbb0707",
+      "reference": false,
+      "iteration": 1,
+      "setup": "hexhammer_palmup_fullpose_192k_v1"
+    },
+    "finite": true,
+    "initial_curriculum_preserved": true
+  },
+  "private_bundle": {
+    "setup": "hexhammer_palmup_fullpose_192k_v1",
+    "archive": "<POISE_ROOT>/outputs/private_bundles/hexhammer_palmup_fullpose_192k_v1.tar.gz",
+    "sha256": "4029d8a85a8b448af2fc5b15e78eed84aaf3239b271877afc2436011dc9d453e",
+    "files": 42,
+    "bytes": 18467663,
+    "published": false
+  },
+  "bundle_import": {
+    "setup": "hexhammer_palmup_fullpose_192k_v1",
+    "root": "<POISE_ROOT>/outputs/verification/hexhammer_baseline_20261009/imported",
+    "valid": true,
+    "files": 42,
+    "missing": [],
+    "changed": [],
+    "with_reference": true,
+    "cache_rows": {
+      "t_shape_hex_prism_hammer_chamfered": 11630
+    },
+    "checkpoint": {
+      "sha256": "5c6e3674b055574c8a75e5ac800d3534b29fa39ac3d9dbb7a5640dbb7e7180c2",
+      "reference": true,
+      "iteration": 89800,
+      "setup": "hexhammer_palmup_fullpose_192k_v1"
+    }
+  },
+  "formal_training_launched": false,
+  "validation_output": "outputs/verification/hexhammer_baseline_20261009",
+  "limitations": [
+    "Local smoke and reference rollout only; no new 4-A800 run launched.",
+    "No independent goal-reaching success-rate evaluation for model_89800."
+  ]
+}

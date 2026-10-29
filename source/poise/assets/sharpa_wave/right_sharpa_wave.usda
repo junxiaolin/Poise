@@ -1,0 +1,11 @@
+#usda 1.0
+# POISE composition wrapper. Upstream geometry/dynamics remain unmodified.
+(
+    defaultPrim = "right_sharpa_wave"
+    metersPerUnit = 1
+    upAxis = "Z"
+    subLayers = [
+        @poise_collision.usda@,
+        @upstream.usda@
+    ]
+)

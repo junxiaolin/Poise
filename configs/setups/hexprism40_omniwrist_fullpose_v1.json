@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "id": "hexprism40_omniwrist_fullpose_v1",
+  "status": "private_staging",
+  "description": "Random-wrist Sharpa Wave, HexPrism40, strict full-pose success, no tactile; 4 A800 / 192k / GF160k",
+  "hand": "sharpa_wave_right",
+  "recipe": {
+    "name": "hexprism40_omniwrist_fullpose_v1",
+    "sha256": "f1065f0ce16fb41175c102cf92996f24867a9081f64d41fe046d8073e103ba25",
+    "origin": "docs/baselines/hexprism40_omniwrist_fullpose_v1/env.json",
+    "origin_sha256": "f1065f0ce16fb41175c102cf92996f24867a9081f64d41fe046d8073e103ba25"
+  },
+  "ppo": {
+    "name": "ppo",
+    "sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef"
+  },
+  "assets_manifest": "manifests/setups/hexprism40_omniwrist_fullpose_v1.json",
+  "assets_manifest_sha256": "b3ac0805e30f911a8e9afe411d87d2a3c3b6e443cdf64cd1bebc2d0d97ef478e",
+  "objects": [
+    {
+      "id": "regular_hex_prism_af40mm_h40mm_chamfered",
+      "dimensions_m": [
+        0.04561066818,
+        0.04,
+        0.04
+      ],
+      "shape": "hex_prism",
+      "cache": "data/stable_grasps/sharpa_manual_hex_prisms/usda09/regular_hex_prism_af40mm_h40mm_chamfered_hb1wave14_usda09_lightning711_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.usda",
+      "cache_rows": 6842
+    }
+  ],
+  "reference_checkpoint": {
+    "path": "data/checkpoints/hexprism40_omniwrist_fullpose_v1/model_35800.pt",
+    "sha256": "015cce3ad9dfdb5c76fa270ac1c328812cac6463bd7965425bc896331f2102cf",
+    "iteration": 35800,
+    "status": "internal_candidate",
+    "source_record": "docs/baselines/hexprism40_omniwrist_fullpose_v1/manifest.json"
+  },
+  "rollout": {
+    "config": "configs/rollout/hexprism40_omniwrist_fullpose_v1.json",
+    "sha256": "0ff6da6f3bd712ca0d09bd7cd03a7053097361cd9e731456443f686f9b8d96cc"
+  },
+  "training": {
+    "seed": 42,
+    "iterations": 150000,
+    "envs_per_rank": 24000,
+    "world_size": 8,
+    "physical_gpus": 4,
+    "backend": "gloo",
+    "global_frontier_min": 160000,
+    "smoke_num_envs": 8,
+    "smoke_iterations": 2
+  }
+}

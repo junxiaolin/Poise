@@ -1,0 +1,60 @@
+{
+  "object_id": "regular_hex_prism_af40mm_h40mm_chamfered",
+  "object_dims_m": [
+    0.04561066818,
+    0.04,
+    0.04
+  ],
+  "object_mesh": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.obj",
+  "object_mesh_sha256": "79506c0d45249506260a44c00150fa92efc85eb1878cdc529302cc1675dea158",
+  "joint_limit_reference": "data/robots/sharpa_limits/right_sharpa_wave.usda",
+  "joint_limit_reference_sha256": "cb2ee455690cab3a7fb6912b9886d9205e57ca977d6ea2f132ac413442c9a09d",
+  "parents": 2,
+  "rows": 12,
+  "min_variants": 3,
+  "max_variants": 9,
+  "wrist_seed": 20260703,
+  "expansion_seed": 20260918,
+  "filter_batch_size": 16,
+  "expansion_envs": 16,
+  "max_expansion_batches": 160,
+  "initial_variants": 16,
+  "supplement_variants": 16,
+  "supplement_rounds": 2,
+  "searches": [
+    {
+      "name": "release_smoke",
+      "args": [
+        "--seed",
+        42,
+        "--n_passes",
+        2,
+        "--x_range",
+        0.05,
+        0.11,
+        "--x_step",
+        0.02,
+        "--y_range",
+        -0.025,
+        0.025,
+        "--y_step",
+        0.025,
+        "--z_range",
+        0.09,
+        0.13,
+        "--z_step",
+        0.02,
+        "--balance_by_position",
+        "--max_per_position",
+        4,
+        "--target_total_grasps",
+        32
+      ]
+    }
+  ],
+  "search_pose_batch_size": 32,
+  "search_inner_batch_size": 32,
+  "qcmd_batch_size": 128,
+  "minimum_parents": 1,
+  "max_wall_seconds": 1200
+}

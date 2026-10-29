@@ -1,0 +1,134 @@
+{
+  "object_id": "regular_hex_prism_af40mm_h40mm_chamfered",
+  "object_dims_m": [
+    0.04561066818,
+    0.04,
+    0.04
+  ],
+  "object_mesh": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.obj",
+  "object_mesh_sha256": "79506c0d45249506260a44c00150fa92efc85eb1878cdc529302cc1675dea158",
+  "joint_limit_reference": "data/robots/sharpa_limits/right_sharpa_wave.usda",
+  "joint_limit_reference_sha256": "cb2ee455690cab3a7fb6912b9886d9205e57ca977d6ea2f132ac413442c9a09d",
+  "parents": 486,
+  "rows": 6842,
+  "min_variants": 10,
+  "max_variants": 20,
+  "wrist_seed": 20260703,
+  "expansion_seed": 20260918,
+  "filter_batch_size": 64,
+  "expansion_envs": 64,
+  "max_expansion_batches": 2880,
+  "initial_variants": 20,
+  "supplement_variants": 80,
+  "supplement_rounds": 12,
+  "searches": [
+    {
+      "name": "full_seed0",
+      "args": [
+        "--seed",
+        0,
+        "--n_passes",
+        10,
+        "--balance_by_position",
+        "--max_per_position",
+        8,
+        "--target_total_grasps",
+        1000
+      ]
+    },
+    {
+      "name": "full_seed10",
+      "args": [
+        "--seed",
+        10,
+        "--n_passes",
+        20,
+        "--balance_by_position",
+        "--max_per_position",
+        8,
+        "--target_total_grasps",
+        1000
+      ]
+    },
+    {
+      "name": "full_seed20",
+      "args": [
+        "--seed",
+        20,
+        "--n_passes",
+        20,
+        "--balance_by_position",
+        "--max_per_position",
+        8,
+        "--target_total_grasps",
+        1000
+      ]
+    },
+    {
+      "name": "corner_n4_z5",
+      "args": [
+        "--x_range",
+        0.05,
+        0.05,
+        "--z_range",
+        0.05,
+        0.05,
+        "--seed",
+        10,
+        "--n_passes",
+        50,
+        "--n_assign_retry",
+        40,
+        "--keep_per_grid_pose",
+        3,
+        "--n_contact",
+        4
+      ]
+    },
+    {
+      "name": "corner_n4_z7",
+      "args": [
+        "--x_range",
+        0.05,
+        0.05,
+        "--z_range",
+        0.07,
+        0.07,
+        "--seed",
+        10,
+        "--n_passes",
+        50,
+        "--n_assign_retry",
+        40,
+        "--keep_per_grid_pose",
+        3,
+        "--n_contact",
+        4
+      ]
+    },
+    {
+      "name": "corner_n4_z7_seed100",
+      "args": [
+        "--x_range",
+        0.05,
+        0.05,
+        "--z_range",
+        0.07,
+        0.07,
+        "--seed",
+        100,
+        "--n_passes",
+        50,
+        "--n_assign_retry",
+        40,
+        "--keep_per_grid_pose",
+        3,
+        "--n_contact",
+        4
+      ]
+    }
+  ],
+  "search_pose_batch_size": 32,
+  "search_inner_batch_size": 32,
+  "qcmd_batch_size": 128
+}

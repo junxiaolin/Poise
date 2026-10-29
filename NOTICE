@@ -1,0 +1,35 @@
+POISE — licenses and third-party notices
+
+Poise-authored code and documentation, including authorized code migrated from
+AP2AP, use the MIT license in LICENSE. Source revisions and hashes are retained
+in manifests/migration.csv. This grant does not override third-party terms.
+
+EXCEPTIONS AND THIRD-PARTY NOTICES
+source/poise/grasp/lightning/ and dependencies/lightning_grasp/poise.patch derive
+from Lightning Grasp, Copyright (c) Zhao-Heng Yin, under CC BY-NC 4.0. Poise
+modifications adapt the hand, search, preload command and cache interfaces.
+See licenses/Lightning-Grasp.txt and dependencies/lightning_grasp/manifest.json.
+The optional optimizer/native binaries are fetched upstream, not redistributed
+inside the Poise source or asset releases. Their restrictions are separate
+from the MIT-licensed training core.
+
+FoundationPose is optional and external. Its source/weight terms restrict use
+to non-commercial research/evaluation; see licenses/FoundationPose.txt and its
+pinned dependency manifest. Poise does not redistribute its source or weights.
+
+Sharpa Wave upstream assets: Copyright 2025 Sharpa Group, Apache-2.0, repository
+sharpa-robotics/sharpa-urdf-usd-xml, revision
+0d447b6889e6d993758169dfc0aa75ee9f6ad8d7. Retain LICENSE.txt and vendor notices.
+Poise supplies separate MIT-licensed USD collision composition layers.
+Derived numerical hand references retain applicable upstream notices.
+
+Poise-authored object assets, grasp caches, geometry descriptors and reference
+checkpoints are separately offered under CC BY 4.0, Copyright 2026 Poise
+contributors; attribution and modification notices are required. See
+licenses/CC-BY-4.0.txt and manifests/rights.json. File hashes identify versions;
+they do not convert third-party components to Poise's license.
+
+The owner confirmed distribution authority during private release preparation.
+This is not a claim of independent legal clearance, trademark permission, or
+permission to relicense upstream software. Third-party terms remain applicable.
+No repository visibility change or external upload occurs when packaging locally.

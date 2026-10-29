@@ -1,0 +1,14 @@
+{
+  "python": "3.11",
+  "tested_packages": {
+    "torch": "2.7.0+cu128",
+    "numpy": "1.26.0",
+    "isaaclab": "0.48.0",
+    "isaacsim": "5.1.0.0",
+    "rsl-rl-lib": "3.0.1",
+    "trimesh": "4.5.1",
+    "rtree": "1.3.0"
+  },
+  "stage": "train",
+  "validation": "local integration"
+}

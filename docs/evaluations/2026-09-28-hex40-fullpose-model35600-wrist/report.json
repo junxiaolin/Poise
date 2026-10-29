@@ -1,0 +1,520 @@
+{
+  "checkpoint": "<POISE_ROOT>/outputs/checkpoints/hex40_omniwrist_fullpose_4xa800_192k_s42/model_35600.pt",
+  "checkpoint_sha256": "bb859021c2047f3908a284f236d766e57087ab78ff60eec63932f75d335a1bba",
+  "script_sha256": "57c1218ac4d0fd41f1015abde2a50e2f25b077d632d1545e2f2f73e1fbc270c0",
+  "seed": 20260928,
+  "trials_per_condition": 1024,
+  "overrides": {
+    "twist_target_sampling_mode": "full_range_uniform",
+    "twist_target_uniform_min_rad": 0.0,
+    "twist_target_uniform_max_rad": 3.141592653589793,
+    "pose6d_translation_sampling_mode": "full_range_uniform",
+    "pose6d_translation_uniform_min_m": 0.0,
+    "pose6d_translation_uniform_max_m": 0.03,
+    "twist_target_curriculum_enabled": false,
+    "chain_post_success_target_curriculum_enabled": false,
+    "pose6d_translation_curriculum_enabled": false,
+    "chain_pose6d_translation_curriculum_enabled": false,
+    "multiobject_per_object_curriculum_enabled": false,
+    "curriculum_distributed_sync_enabled": false,
+    "multiobject_curriculum_distributed_sync_enabled": false,
+    "adaptive_frontier_soft_promotion_enabled": false,
+    "twist_target_refresh_on_success": false,
+    "dexndm_omni_wrist_ornt": true
+  },
+  "protocol": "First fixed goal within 20s; <10mm and <10deg for 20 steps; training DR/noise retained; no extra target rejection",
+  "random_orientation_distribution": "independent uniform Euler angles [-180,180], matching training, not Haar-uniform SO(3)",
+  "frozen_policy_verified": true,
+  "conditions": {
+    "palm_up": {
+      "n": 1024,
+      "successes": 564,
+      "rate": 0.55078125,
+      "ci95": [
+        0.520181769812159,
+        0.5810011500900266
+      ],
+      "rpy_deg": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "palm_normal_world": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "feasible": {
+        "n": 1013,
+        "successes": 563,
+        "rate": 0.5557749259624877,
+        "ci95": [
+          0.5250232484114197,
+          0.586105186626088
+        ]
+      },
+      "fallback_trials": 11,
+      "drops_before_success": 128,
+      "median_success_time_s": 5.7250000000000005,
+      "angle_bins": {
+        "0-45": {
+          "n": 233,
+          "successes": 148,
+          "rate": 0.6351931330472103,
+          "ci95": [
+            0.5716550693338948,
+            0.6943456566948009
+          ]
+        },
+        "45-90": {
+          "n": 265,
+          "successes": 127,
+          "rate": 0.47924528301886793,
+          "ci95": [
+            0.4198244508930052,
+            0.5392592408550873
+          ]
+        },
+        "90-135": {
+          "n": 239,
+          "successes": 142,
+          "rate": 0.5941422594142259,
+          "ci95": [
+            0.5308734518091984,
+            0.6544326331506458
+          ]
+        },
+        "135-180": {
+          "n": 287,
+          "successes": 147,
+          "rate": 0.5121951219512195,
+          "ci95": [
+            0.4545876991110407,
+            0.5694803963674502
+          ]
+        }
+      }
+    },
+    "palm_down": {
+      "n": 1024,
+      "successes": 431,
+      "rate": 0.4208984375,
+      "ci95": [
+        0.3910104131928584,
+        0.45137773080565985
+      ],
+      "rpy_deg": [
+        180.0,
+        0.0,
+        0.0
+      ],
+      "palm_normal_world": [
+        0.0,
+        0.0,
+        -1.0
+      ],
+      "feasible": {
+        "n": 1013,
+        "successes": 430,
+        "rate": 0.4244817374136229,
+        "ci95": [
+          0.3943861998706581,
+          0.45514786596351303
+        ]
+      },
+      "fallback_trials": 11,
+      "drops_before_success": 336,
+      "median_success_time_s": 5.2,
+      "angle_bins": {
+        "0-45": {
+          "n": 233,
+          "successes": 120,
+          "rate": 0.5150214592274678,
+          "ci95": [
+            0.451128122252945,
+            0.5784275139724656
+          ]
+        },
+        "45-90": {
+          "n": 265,
+          "successes": 92,
+          "rate": 0.3471698113207547,
+          "ci95": [
+            0.29240400388777144,
+            0.406303180802728
+          ]
+        },
+        "90-135": {
+          "n": 239,
+          "successes": 105,
+          "rate": 0.4393305439330544,
+          "ci95": [
+            0.37786115117487895,
+            0.5027193718509994
+          ]
+        },
+        "135-180": {
+          "n": 287,
+          "successes": 114,
+          "rate": 0.397212543554007,
+          "ci95": [
+            0.3423179013635384,
+            0.4548224367463252
+          ]
+        }
+      }
+    },
+    "palm_pos_x": {
+      "n": 1024,
+      "successes": 412,
+      "rate": 0.40234375,
+      "ci95": [
+        0.372728044436769,
+        0.4326894172897968
+      ],
+      "rpy_deg": [
+        0.0,
+        90.0,
+        0.0
+      ],
+      "palm_normal_world": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "feasible": {
+        "n": 1013,
+        "successes": 412,
+        "rate": 0.4067127344521224,
+        "ci95": [
+          0.3768706854966358,
+          0.43725963112204613
+        ]
+      },
+      "fallback_trials": 11,
+      "drops_before_success": 320,
+      "median_success_time_s": 5.275,
+      "angle_bins": {
+        "0-45": {
+          "n": 233,
+          "successes": 107,
+          "rate": 0.4592274678111588,
+          "ci95": [
+            0.3964194304928268,
+            0.5233581283239158
+          ]
+        },
+        "45-90": {
+          "n": 265,
+          "successes": 90,
+          "rate": 0.33962264150943394,
+          "ci95": [
+            0.2852577402891665,
+            0.39857078685518477
+          ]
+        },
+        "90-135": {
+          "n": 239,
+          "successes": 110,
+          "rate": 0.4602510460251046,
+          "ci95": [
+            0.39818931445345884,
+            0.5235703385634959
+          ]
+        },
+        "135-180": {
+          "n": 287,
+          "successes": 105,
+          "rate": 0.36585365853658536,
+          "ci95": [
+            0.3122406574546966,
+            0.42301029228190506
+          ]
+        }
+      }
+    },
+    "palm_neg_x": {
+      "n": 1024,
+      "successes": 578,
+      "rate": 0.564453125,
+      "ci95": [
+        0.5338991531125734,
+        0.594525322147893
+      ],
+      "rpy_deg": [
+        0.0,
+        -90.0,
+        0.0
+      ],
+      "palm_normal_world": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "feasible": {
+        "n": 1013,
+        "successes": 577,
+        "rate": 0.5695952615992103,
+        "ci95": [
+          0.5388983180465821,
+          0.5997663663807504
+        ]
+      },
+      "fallback_trials": 11,
+      "drops_before_success": 212,
+      "median_success_time_s": 5.15,
+      "angle_bins": {
+        "0-45": {
+          "n": 233,
+          "successes": 153,
+          "rate": 0.6566523605150214,
+          "ci95": [
+            0.5935862208947169,
+            0.714636842598851
+          ]
+        },
+        "45-90": {
+          "n": 265,
+          "successes": 129,
+          "rate": 0.4867924528301887,
+          "ci95": [
+            0.42723356000397306,
+            0.5467287892902676
+          ]
+        },
+        "90-135": {
+          "n": 239,
+          "successes": 140,
+          "rate": 0.5857740585774058,
+          "ci95": [
+            0.5224482123716363,
+            0.6463862205917772
+          ]
+        },
+        "135-180": {
+          "n": 287,
+          "successes": 156,
+          "rate": 0.5435540069686411,
+          "ci95": [
+            0.48573105919847037,
+            0.6002264246532824
+          ]
+        }
+      }
+    },
+    "palm_pos_y": {
+      "n": 1024,
+      "successes": 525,
+      "rate": 0.5126953125,
+      "ci95": [
+        0.4820905270756495,
+        0.543205202899897
+      ],
+      "rpy_deg": [
+        -90.0,
+        0.0,
+        0.0
+      ],
+      "palm_normal_world": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "feasible": {
+        "n": 1013,
+        "successes": 524,
+        "rate": 0.5172754195459033,
+        "ci95": [
+          0.4864963894803001,
+          0.5479239222569812
+        ]
+      },
+      "fallback_trials": 11,
+      "drops_before_success": 228,
+      "median_success_time_s": 5.1000000000000005,
+      "angle_bins": {
+        "0-45": {
+          "n": 233,
+          "successes": 135,
+          "rate": 0.5793991416309013,
+          "ci95": [
+            0.5152281695647657,
+            0.6409944790552621
+          ]
+        },
+        "45-90": {
+          "n": 265,
+          "successes": 116,
+          "rate": 0.4377358490566038,
+          "ci95": [
+            0.37931592428224675,
+            0.4979351509620307
+          ]
+        },
+        "90-135": {
+          "n": 239,
+          "successes": 132,
+          "rate": 0.5523012552301255,
+          "ci95": [
+            0.488927036184308,
+            0.6140207887933832
+          ]
+        },
+        "135-180": {
+          "n": 287,
+          "successes": 142,
+          "rate": 0.49477351916376305,
+          "ci95": [
+            0.4373824316037804,
+            0.5523026703340095
+          ]
+        }
+      }
+    },
+    "palm_neg_y": {
+      "n": 1024,
+      "successes": 459,
+      "rate": 0.4482421875,
+      "ci95": [
+        0.4180320682713692,
+        0.4788391864437106
+      ],
+      "rpy_deg": [
+        90.0,
+        0.0,
+        0.0
+      ],
+      "palm_normal_world": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "feasible": {
+        "n": 1013,
+        "successes": 458,
+        "rate": 0.4521224086870681,
+        "ci95": [
+          0.4217119180707071,
+          0.4828946465431138
+        ]
+      },
+      "fallback_trials": 11,
+      "drops_before_success": 264,
+      "median_success_time_s": 5.2,
+      "angle_bins": {
+        "0-45": {
+          "n": 233,
+          "successes": 123,
+          "rate": 0.5278969957081545,
+          "ci95": [
+            0.46386412716235403,
+            0.5910249115419799
+          ]
+        },
+        "45-90": {
+          "n": 265,
+          "successes": 102,
+          "rate": 0.3849056603773585,
+          "ci95": [
+            0.32836383185269763,
+            0.44473664056854273
+          ]
+        },
+        "90-135": {
+          "n": 239,
+          "successes": 116,
+          "rate": 0.48535564853556484,
+          "ci95": [
+            0.42272746425199315,
+            0.5484471447542534
+          ]
+        },
+        "135-180": {
+          "n": 287,
+          "successes": 118,
+          "rate": 0.41114982578397213,
+          "ci95": [
+            0.35576252092675964,
+            0.4688842120156649
+          ]
+        }
+      }
+    },
+    "random_rpy": {
+      "n": 1024,
+      "successes": 476,
+      "rate": 0.46484375,
+      "ci95": [
+        0.4344833575759365,
+        0.49546692864562714
+      ],
+      "rpy_deg": null,
+      "palm_normal_world": null,
+      "feasible": {
+        "n": 1017,
+        "successes": 476,
+        "rate": 0.46804326450344147,
+        "ci95": [
+          0.437554215120756,
+          0.4987728223066915
+        ]
+      },
+      "fallback_trials": 7,
+      "drops_before_success": 252,
+      "median_success_time_s": 5.3500000000000005,
+      "angle_bins": {
+        "0-45": {
+          "n": 258,
+          "successes": 132,
+          "rate": 0.5116279069767442,
+          "ci95": [
+            0.45091163751526764,
+            0.5720029919212753
+          ]
+        },
+        "45-90": {
+          "n": 266,
+          "successes": 126,
+          "rate": 0.47368421052631576,
+          "ci95": [
+            0.4144830265174718,
+            0.5336346568763806
+          ]
+        },
+        "90-135": {
+          "n": 256,
+          "successes": 105,
+          "rate": 0.41015625,
+          "ci95": [
+            0.35166480373281067,
+            0.4713041704687129
+          ]
+        },
+        "135-180": {
+          "n": 244,
+          "successes": 113,
+          "rate": 0.46311475409836067,
+          "ci95": [
+            0.40160462413774284,
+            0.5257683017413675
+          ]
+        }
+      }
+    }
+  },
+  "total_trials": 7168,
+  "raw_data_root": "<POISE_ROOT>/outputs/evaluation/hex40_fullpose_35600_wrist_20260928_isolated",
+  "same_grasp_rows_verified": true,
+  "summarized_utc": "2026-09-28T06:31:04.964700+00:00",
+  "env_sha256": {
+    "palm_up": "514a28b1a9970f2f5b352bf2dd269a1cba67a70e51eb52e41064e473d7bbe2eb",
+    "palm_down": "d24ffbbaec2cd67c33427dafe7f0ef7139b56192de0baaeb831e00f943e5df10",
+    "palm_pos_x": "7d9bff8e78fa2b691d21b8ec60d96bd6306a10e147e84761ccc7712de22db79e",
+    "palm_neg_x": "03d3d7d5edb3642b41eb82398d21f8e97b5e9bb37ce6597913bb33be28e85c1c",
+    "palm_pos_y": "6ffb81a7da8cddedfcee896f1918e3c3f2ae822472677fa684e3da6fb739d255",
+    "palm_neg_y": "a08797f0c7dc61d76f3dbcf87ec4cc70262f83a62c54d6ffa69dff1894e998af",
+    "random_rpy": "b636049aa98d501bf70d1b5ddee36ef1af1b6bb6c802d3e5010be44d2cce94ad"
+  },
+  "grasp_cache_sha256": "372690436d6a4ca88e457223aaeba89be34c325b7b0a5c8231f604d3c77fdd90",
+  "elapsed_s_sum": 276.5270501029445
+}

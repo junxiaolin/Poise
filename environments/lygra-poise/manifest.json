@@ -1,0 +1,13 @@
+{
+  "python": "3.9",
+  "tested_packages": {
+    "torch": "2.8.0+cu126",
+    "numpy": "1.23.5",
+    "trimesh": "4.9.0",
+    "urdfpy": "0.0.22",
+    "open3d": "0.19.0",
+    "networkx": "3.2.1"
+  },
+  "stage": "lygra-poise",
+  "validation": "local integration"
+}

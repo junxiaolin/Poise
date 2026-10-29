@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "purpose": "Qualitative continuous-target rollout at the saved full curriculum with training randomization and sensing noise retained; not a success-rate benchmark",
+  "overrides": {
+    "curriculum_distributed_sync_enabled": false,
+    "twist_target_curriculum_initial_max_rad": 3.141592264175415,
+    "chain_post_success_target_curriculum_initial_max_rad": 3.141592264175415,
+    "pose6d_translation_curriculum_initial_max_m": 0.10000000149011612,
+    "chain_pose6d_translation_curriculum_initial_max_m": 0.009999999776482582
+  },
+  "seed": 42,
+  "num_envs": 4,
+  "steps": 400,
+  "notes": [
+    "Fixed palm-up wrist, no tactile; deterministic mean policy.",
+    "Starts from checkpoint rotation 180 degrees / translation 100 mm; existing feasible-target sampling and success refresh are retained.",
+    "Training randomization and observation noise remain enabled, matching the October 9 downloaded-policy rollout."
+  ]
+}

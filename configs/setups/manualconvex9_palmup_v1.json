@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "id": "manualconvex9_palmup_v1",
+  "status": "private_staging",
+  "description": "Fixed palm-up Sharpa Wave, nine objects with one shared policy",
+  "hand": "sharpa_wave_right",
+  "recipe": {
+    "name": "manualconvex9_palmup_v1",
+    "sha256": "2204d5304db78017ebe64308b3445603c130d8ed212fa313b942a3253e9eef3e",
+    "origin": "docs/training_runs/2026-09-17-baseline-variants/manualconvex9_palmup_gf5k.json",
+    "origin_sha256": "2204d5304db78017ebe64308b3445603c130d8ed212fa313b942a3253e9eef3e"
+  },
+  "ppo": {
+    "name": "ppo",
+    "sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef"
+  },
+  "assets_manifest": "manifests/setups/manualconvex9_palmup_v1.json",
+  "assets_manifest_sha256": "9307d524f6333a973f70138ce9e57e2c85cda74a3029bc880f889029705cf64b",
+  "objects": [
+    {
+      "id": "truncated_square_bipyramid_40mm_chamfered",
+      "dimensions_m": [
+        0.039105571746826176,
+        0.039105571746826176,
+        0.04
+      ],
+      "shape": "truncated_square_bipyramid",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/truncated_square_bipyramid_40mm_chamfered_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_convex_objects/truncated_square_bipyramid_40mm_chamfered/truncated_square_bipyramid_40mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_convex_objects/truncated_square_bipyramid_40mm_chamfered/truncated_square_bipyramid_40mm_chamfered.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "truncated_square_bipyramid_xy45mm_h40mm_chamfered",
+      "dimensions_m": [
+        0.044019477844238285,
+        0.044019477844238285,
+        0.04
+      ],
+      "shape": "truncated_square_bipyramid",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/truncated_square_bipyramid_xy45mm_h40mm_chamfered_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_convex_objects/truncated_square_bipyramid_xy45mm_h40mm_chamfered/truncated_square_bipyramid_xy45mm_h40mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_convex_objects/truncated_square_bipyramid_xy45mm_h40mm_chamfered/truncated_square_bipyramid_xy45mm_h40mm_chamfered.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "truncated_square_bipyramid_xy50mm_h50mm_chamfered",
+      "dimensions_m": [
+        0.04910557174682617,
+        0.04910557174682617,
+        0.05
+      ],
+      "shape": "truncated_square_bipyramid",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/truncated_square_bipyramid_xy50mm_h50mm_chamfered_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_convex_objects/truncated_square_bipyramid_xy50mm_h50mm_chamfered/truncated_square_bipyramid_xy50mm_h50mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_convex_objects/truncated_square_bipyramid_xy50mm_h50mm_chamfered/truncated_square_bipyramid_xy50mm_h50mm_chamfered.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "regular_hex_prism_af35mm_h35mm_chamfered",
+      "dimensions_m": [
+        0.03983716965,
+        0.035,
+        0.035
+      ],
+      "shape": "hex_prism",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/regular_hex_prism_af35mm_h35mm_chamfered_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af35mm_h35mm_chamfered/regular_hex_prism_af35mm_h35mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af35mm_h35mm_chamfered/regular_hex_prism_af35mm_h35mm_chamfered.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "regular_hex_prism_af40mm_h40mm_chamfered",
+      "dimensions_m": [
+        0.04561066818,
+        0.04,
+        0.04
+      ],
+      "shape": "hex_prism",
+      "cache": "data/stable_grasps/sharpa_manual_hex_prisms/usda09/regular_hex_prism_af40mm_h40mm_chamfered_hb1wave14_usda09_lightning711_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/regular_hex_prism_af40mm_h40mm_chamfered.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "regular_hex_prism_af45mm_h45mm_chamfered",
+      "dimensions_m": [
+        0.05138417434692383,
+        0.045,
+        0.045
+      ],
+      "shape": "hex_prism",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/regular_hex_prism_af45mm_h45mm_chamfered_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_convex_objects/regular_hex_prism_af45mm_h45mm_chamfered/regular_hex_prism_af45mm_h45mm_chamfered.obj",
+      "usd": "data/objects/sharpa_manual_convex_objects/regular_hex_prism_af45mm_h45mm_chamfered/regular_hex_prism_af45mm_h45mm_chamfered.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "chamfered_cube_35mm",
+      "dimensions_m": [
+        0.035,
+        0.035,
+        0.035
+      ],
+      "shape": "cuboid",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/chamfered_cube_35mm_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_convex_objects/chamfered_cube_35mm/chamfered_cube_35mm.obj",
+      "usd": "data/objects/sharpa_manual_convex_objects/chamfered_cube_35mm/chamfered_cube_35mm.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "chamfered_cube_40mm",
+      "dimensions_m": [
+        0.04,
+        0.04,
+        0.04
+      ],
+      "shape": "cuboid",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/chamfered_cube_40mm_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_convex_objects/chamfered_cube_40mm/chamfered_cube_40mm.obj",
+      "usd": "data/objects/sharpa_manual_convex_objects/chamfered_cube_40mm/chamfered_cube_40mm.usda",
+      "cache_rows": 6842
+    },
+    {
+      "id": "chamfered_cube_45mm",
+      "dimensions_m": [
+        0.045,
+        0.045,
+        0.045
+      ],
+      "shape": "cuboid",
+      "cache": "data/stable_grasps/sharpa_manual_convex9/usda09/chamfered_cube_45mm_hb1wave14_usda09_lightning486_variants10to20_palmup_omniwrist8_hold2s_training.pt",
+      "mesh": "data/objects/sharpa_manual_convex_objects/chamfered_cube_45mm/chamfered_cube_45mm.obj",
+      "usd": "data/objects/sharpa_manual_convex_objects/chamfered_cube_45mm/chamfered_cube_45mm.usda",
+      "cache_rows": 6842
+    }
+  ],
+  "reference_checkpoint": {
+    "path": "data/checkpoints/manualconvex9_palmup_v1/model_23300.pt",
+    "sha256": "9619a7c55a4b874c3b92b952ffdf83d589d216227c541b0d86cec58be55e5fdd",
+    "iteration": 23300,
+    "status": "internal_candidate",
+    "source_record": "docs/evaluation_runs/2026-09-21-convex9-model23300-vs19100/report.md"
+  },
+  "rollout": {
+    "config": "configs/rollout/manualconvex9_palmup_v1.json",
+    "sha256": "635eff72df827bae817d01defb01af6151126d6396f7c100e6e00f97e8fe4f70"
+  },
+  "training": {
+    "seed": 42,
+    "iterations": 150000,
+    "envs_per_rank": 32000,
+    "world_size": 2,
+    "physical_gpus": 1,
+    "backend": "gloo",
+    "global_frontier_min": 5000,
+    "smoke_num_envs": 18,
+    "smoke_iterations": 2
+  }
+}
