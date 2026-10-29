@@ -11,11 +11,10 @@ FoundationPose/control adapters have offline tests; independent native deploymen
 installation, tracking throughput and physical closed-loop operation are not
 validated release features. A new hand requires implementation work.
 
-Release preparation is private. MIT covers Poise-owned code; third-party
+MIT covers Poise-owned code; third-party
 exceptions and separate asset terms are in NOTICE and manifests/rights.json.
-Shared asset packages are pinned in manifests/releases. No public download URL,
-repository visibility change, external upload or formal training launch is part
-of preparing a release candidate.
+Shared asset packages and their GitHub Release URLs are pinned in manifests/releases.
+Packaging locally does not change repository visibility or launch training.
 
 See [release preparation](release/README.md), [baselines](baselines/README.md),
 [reproduction](reproduction.md) and [validation](release/validation.md).

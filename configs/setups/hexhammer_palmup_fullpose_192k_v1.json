@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "hexhammer_palmup_fullpose_192k_v1",
-  "status": "private_staging",
+  "status": "release_candidate",
   "description": "Fixed palm-up Sharpa Wave, HexHammer, strict full-pose success, no tactile; 4 A800 / 192k / GF20k",
   "hand": "sharpa_wave_right",
   "recipe": {
@@ -15,7 +15,7 @@
     "sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef"
   },
   "assets_manifest": "manifests/setups/hexhammer_palmup_fullpose_192k_v1.json",
-  "assets_manifest_sha256": "bc5f543e89fd2f8279ed2d202e1c95cd847c31b7ff0169291fcfb375c8e9fc09",
+  "assets_manifest_sha256": "0f35ba8a84df357dccd5ffbe84683060459233f5e5b67094517f03f589565b2c",
   "objects": [
     {
       "id": "t_shape_hex_prism_hammer_chamfered",
@@ -35,7 +35,7 @@
     "path": "data/checkpoints/hexhammer_palmup_fullpose_192k_v1/model_89800.pt",
     "sha256": "5c6e3674b055574c8a75e5ac800d3534b29fa39ac3d9dbb7a5640dbb7e7180c2",
     "iteration": 89800,
-    "status": "internal_candidate",
+    "status": "reference",
     "source_record": "docs/baselines/hexhammer_palmup_fullpose_192k_v1/manifest.json"
   },
   "rollout": {

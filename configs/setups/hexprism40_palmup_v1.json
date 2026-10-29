@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "hexprism40_palmup_v1",
-  "status": "private_staging",
+  "status": "release_candidate",
   "description": "Fixed palm-up Sharpa Wave, HexPrism40",
   "hand": "sharpa_wave_right",
   "recipe": {
@@ -15,7 +15,7 @@
     "sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef"
   },
   "assets_manifest": "manifests/setups/hexprism40_palmup_v1.json",
-  "assets_manifest_sha256": "6a0286a7d3468b92455ef56219cf7f7c21d2d773a133d383cdc0fbdaa6d0b1ae",
+  "assets_manifest_sha256": "536115576a774a0dd4a03b988b712ef13bba2a71f63df959333cfdfe79900c2d",
   "objects": [
     {
       "id": "regular_hex_prism_af40mm_h40mm_chamfered",
@@ -35,7 +35,7 @@
     "path": "data/checkpoints/hexprism40_palmup_v1/model_31200.pt",
     "sha256": "f801420829d6d92a31c7cf0a634a7d893e8211b89dcaac744d46be00591da87c",
     "iteration": 31200,
-    "status": "internal_candidate",
+    "status": "reference",
     "source_record": "docs/baselines/hexprism40_palmup_v0/manifest.json"
   },
   "rollout": {

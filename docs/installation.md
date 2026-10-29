@@ -34,17 +34,16 @@ container/Python ABI. No SDK or native upstream binary is bundled with POISE.
 ## Assets for provided setups
 
 ```bash
-poise fetch-assets --setup hexprism40_palmup_v1 \
-  --source /path/to/release/assets --with-reference
+poise fetch-assets --setup hexprism40_palmup_v1 --with-reference
 poise check-assets --setup hexprism40_palmup_v1 --deep --with-reference
 ```
 
 Bundles include the simulation hand and collision composition, object meshes/USD,
 BPS/contact geometry, palm SDF, reset cache and optional checkpoint. They can be
 imported into the checkout or an independent `POISE_ROOT` workspace. All selected
-files are checked against setup hashes. Public URLs remain unset; no clean-machine
-public download is claimed. See [reproduction](reproduction.md) for the implemented
-local-bundle path and [validation](release/validation.md) for results.
+files are checked against setup hashes. Downloads use pinned GitHub Release URLs.
+See [reproduction](reproduction.md) for offline or authenticated downloads and
+[validation](release/validation.md) for results.
 
 ## Additional generation assets
 
@@ -52,7 +51,7 @@ For the supplied Hex40 generation recipe, install the shared inputs and the
 optional numerical joint-limit reference:
 
 ```bash
-poise fetch-grasp-assets --source /path/to/release/assets
+poise fetch-grasp-assets
 ```
 
 The public hand can also be installed independently:

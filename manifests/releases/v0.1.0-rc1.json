@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "status": "private_staging",
+  "status": "published",
   "packages": {
     "assets-common-v1": {
       "filename": "assets-common-v1.tar.gz",
       "format": "tar.gz",
       "bytes": 5487243,
       "sha256": "0eadd4be15821fc8aecb5d8dfcb7988ba1124fb599efbd051ffebd363cb45635",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/assets-common-v1.tar.gz",
       "files": [
         {
           "path": "data/hand_fields/sharpa_wave14_hb1/right_hand_C_MC_collision_sdf_2mm.npz",
@@ -214,7 +214,7 @@
       "format": "tar.gz",
       "bytes": 23355399,
       "sha256": "6595aef172f6a7d3678f4b83b3119b7b7bdf24550207dc2b96418ff712a88427",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/assets-convex9-extra-v1.tar.gz",
       "files": [
         {
           "path": "data/objects/sharpa_manual_convex_objects/chamfered_cube_35mm/chamfered_cube_35mm.obj",
@@ -463,7 +463,7 @@
       "format": "tar.gz",
       "bytes": 18368,
       "sha256": "432124adb595c7737350c2de12925af22e0e4ce512867b46711fdf97a0dfe707",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/assets-generation-v1.tar.gz",
       "files": [
         {
           "path": "data/robots/sharpa_limits/right_sharpa_wave.usda",
@@ -478,7 +478,7 @@
       "format": "tar.gz",
       "bytes": 2882465,
       "sha256": "a7b738a82a42be8f54a64bd4b70389e79499ec8eb51755dcf83c977b3b91b83f",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/assets-hex40-v1.tar.gz",
       "files": [
         {
           "path": "data/objects/sharpa_manual_hex_prisms/regular_hex_prism_af40mm_h40mm_chamfered/manifest.json",
@@ -517,7 +517,7 @@
       "format": "tar.gz",
       "bytes": 4875316,
       "sha256": "338373bb35597a968d6519c171c71ed7357b1275928326ae60ae06b3f18977ce",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/assets-hexhammer-v1.tar.gz",
       "files": [
         {
           "path": "data/objects/sharpa_hex_prism_hammer/t_shape_hex_prism_hammer_chamfered/manifest.json",
@@ -568,7 +568,7 @@
       "format": "raw",
       "bytes": 13043621,
       "sha256": "5c6e3674b055574c8a75e5ac800d3534b29fa39ac3d9dbb7a5640dbb7e7180c2",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/checkpoint-hexhammer_palmup_fullpose_192k_v1.pt",
       "files": [
         {
           "path": "data/checkpoints/hexhammer_palmup_fullpose_192k_v1/model_89800.pt",
@@ -583,7 +583,7 @@
       "format": "raw",
       "bytes": 13043621,
       "sha256": "015cce3ad9dfdb5c76fa270ac1c328812cac6463bd7965425bc896331f2102cf",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/checkpoint-hexprism40_omniwrist_fullpose_v1.pt",
       "files": [
         {
           "path": "data/checkpoints/hexprism40_omniwrist_fullpose_v1/model_35800.pt",
@@ -598,7 +598,7 @@
       "format": "raw",
       "bytes": 9668033,
       "sha256": "f801420829d6d92a31c7cf0a634a7d893e8211b89dcaac744d46be00591da87c",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/checkpoint-hexprism40_palmup_v1.pt",
       "files": [
         {
           "path": "data/checkpoints/hexprism40_palmup_v1/model_31200.pt",
@@ -613,7 +613,7 @@
       "format": "raw",
       "bytes": 13766071,
       "sha256": "9619a7c55a4b874c3b92b952ffdf83d589d216227c541b0d86cec58be55e5fdd",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/checkpoint-manualconvex9_palmup_v1.pt",
       "files": [
         {
           "path": "data/checkpoints/manualconvex9_palmup_v1/model_23300.pt",
@@ -628,7 +628,7 @@
       "format": "raw",
       "bytes": 6297453,
       "sha256": "ad72df984748c16dd852ffc6cf25ca5565370ff445b95a1c463d20bd31ed13df",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/geometry-sharpa_hex_prism_hammer_chamfered_bps64_mesh_data_64_v1.pt",
       "files": [
         {
           "path": "data/geometry_latents/sharpa_hex_prism_hammer_chamfered_bps64_mesh_data_64_v1.pt",
@@ -643,7 +643,7 @@
       "format": "raw",
       "bytes": 6297037,
       "sha256": "8aadb99540dabefc67eacd41f90cf9c02d8825ac85f46ab0f0ed1add955055ff",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/geometry-sharpa_hexprism40_bps64_mesh_data_64_v1.pt",
       "files": [
         {
           "path": "data/geometry_latents/sharpa_hexprism40_bps64_mesh_data_64_v1.pt",
@@ -658,7 +658,7 @@
       "format": "raw",
       "bytes": 56633712,
       "sha256": "31c948d42a5350fc4e91af8b17df083d880c464b4488c0d4a88ee1881590218a",
-      "url": null,
+      "url": "https://github.com/junxiaolin/Poise/releases/download/v0.1.0-rc1/geometry-sharpa_manual_convex9_bps64_mesh_data_64_v1.pt",
       "files": [
         {
           "path": "data/geometry_latents/sharpa_manual_convex9_bps64_mesh_data_64_v1.pt",

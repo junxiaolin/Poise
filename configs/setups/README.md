@@ -26,5 +26,5 @@ For a new registered setup, first validate the custom recipe, stage its assets,
 create the manifest, choose a tested reference checkpoint and explicit rollout
 settings, then compute hashes and add a new descriptor. Validate with
 `show-setup`, `check-assets --deep --with-reference`, a smoke run and rollout.
-Do not copy the existing setup ID onto changed inputs. Current descriptors and
-reference choices are internal candidates, not a published release contract.
+Do not copy the existing setup ID onto changed inputs. The four reference setups
+and checkpoint identities are pinned for release v0.1.0-rc1.

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "hexprism40_omniwrist_fullpose_v1",
-  "status": "private_staging",
+  "status": "release_candidate",
   "description": "Random-wrist Sharpa Wave, HexPrism40, strict full-pose success, no tactile; 4 A800 / 192k / GF160k",
   "hand": "sharpa_wave_right",
   "recipe": {
@@ -15,7 +15,7 @@
     "sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef"
   },
   "assets_manifest": "manifests/setups/hexprism40_omniwrist_fullpose_v1.json",
-  "assets_manifest_sha256": "b3ac0805e30f911a8e9afe411d87d2a3c3b6e443cdf64cd1bebc2d0d97ef478e",
+  "assets_manifest_sha256": "f08d2e406cbeaaff15efdfc0a85666ba1ab6d031c05db18570af70383f5399c5",
   "objects": [
     {
       "id": "regular_hex_prism_af40mm_h40mm_chamfered",
@@ -35,7 +35,7 @@
     "path": "data/checkpoints/hexprism40_omniwrist_fullpose_v1/model_35800.pt",
     "sha256": "015cce3ad9dfdb5c76fa270ac1c328812cac6463bd7965425bc896331f2102cf",
     "iteration": 35800,
-    "status": "internal_candidate",
+    "status": "reference",
     "source_record": "docs/baselines/hexprism40_omniwrist_fullpose_v1/manifest.json"
   },
   "rollout": {

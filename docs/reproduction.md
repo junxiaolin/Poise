@@ -2,8 +2,9 @@
 
 Use a **source checkout**, installed editable, in a prepared Isaac Lab environment.
 The default route needs no LyGra, FoundationPose, camera, SDK or research checkout.
-Code and assets remain private staging. Obtain the authorized layered release directory from
-the maintainer; no public URL is configured. Commands below run from the POISE root.
+Code and assets are versioned together in the
+[Poise release](https://github.com/junxiaolin/Poise/releases/tag/v0.1.0-rc1).
+Commands below run from the POISE root.
 
 ## 1. Prepare the simulation environment
 
@@ -46,14 +47,25 @@ its configuration continue to resolve from the editable installation.
 ```bash
 # Optional; omit this to use the checkout's data/ directory.
 export POISE_ROOT=/path/to/poise-workspace
-poise fetch-assets --setup hexprism40_palmup_v1 \
-  --source /path/to/release/assets --with-reference
+poise fetch-assets --setup hexprism40_palmup_v1 --with-reference
 poise check-assets --setup hexprism40_palmup_v1 --with-reference --deep
 ```
 
-The release directory contains `release-index.json` and its package files. To use
-another setup, replace the setup ID and reuse the same release directory: shared
-files are verified and reused, and only missing dependencies are installed.
+The downloader resolves the pinned release index, verifies hashes and installs
+only the selected setup's missing dependencies. Correct shared files are reused.
+For offline use, download the Release assets into one directory and add
+`--source /path/to/release/assets`. That directory must contain
+`release-index.json` and the required package files.
+
+For a repository with restricted access, download through an authenticated GitHub
+CLI first; the automatic HTTPS downloader does not use GitHub login credentials:
+
+```bash
+gh release download v0.1.0-rc1 --repo junxiaolin/Poise --dir /path/to/release/assets
+poise fetch-assets --setup hexprism40_palmup_v1 \
+  --source /path/to/release/assets --with-reference
+```
+
 `--source` also accepts a legacy complete tar bundle or an existing workspace
 containing `data/`. The manifests
 include the public hand, its USD dependencies and notices, object meshes/USD,
@@ -84,7 +96,7 @@ poise package-assets --setup hexprism40_palmup_v1 --with-reference \
 
 This writes an archive, metadata, notices and a checksum locally. It never uploads
 or changes repository visibility. [Asset manifests](../manifests/setups/README.md)
-record distribution as `private_staging` with no download URL.
+pin the release index and the identities of all required files.
 
 ## 3. Roll out the reference checkpoint
 
@@ -185,10 +197,8 @@ For a different object set or wrist distribution, first use a new recipe and
 validate it, then register a new versioned setup. See [new objects](new_objects.md).
 Do not edit the identity of an existing reference setup in place.
 
-## Layered candidate assets
+## Layered release assets
 
-Use --source /path/to/release/assets to import the shared training-package candidate.
 The four setups share dependencies; correctly installed files are reused, and
---with-reference adds only the selected checkpoint. Full tar bundles remain
-supported. Public HTTPS fetching activates only when release URLs and hashes
-are explicitly pinned. See [release preparation](release/README.md).
+`--with-reference` adds only the selected checkpoint. Use `--source` for offline
+imports. Full tar bundles remain supported. See [release contents](release/README.md).

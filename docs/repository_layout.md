@@ -55,6 +55,5 @@ wheel distribution of the full task launcher is not currently supported.
 Historical baseline/evaluation/training documents remain evidence, not active
 configuration. New experiments should get new recipes and versioned setups,
 without changing archived configs or silently rebinding a reference checkpoint.
-The public release checklist is separate from local organization: distribution
-URLs are unset, large data is ignored, and local bundle generation does not
-publish anything.
+Large data is distributed through GitHub Releases and ignored by Git. Distribution
+URLs and hashes are pinned; local bundle generation does not publish anything.

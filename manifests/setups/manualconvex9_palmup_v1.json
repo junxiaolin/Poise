@@ -2,9 +2,9 @@
   "schema_version": 1,
   "setup_id": "manualconvex9_palmup_v1",
   "distribution": {
-    "status": "private_staging",
+    "status": "published",
     "release_index": "manifests/releases/v0.1.0-rc1.json",
-    "release_index_sha256": "c615adf3c1a8c4a343e0c67c92edeff6efb9df77004c012dd7a02ec04c6d5f40"
+    "release_index_sha256": "c49564247e32554a2792c6c636be15d0cabb34f44219aa50d5a5cacc7d1ce7c6"
   },
   "files": [
     {

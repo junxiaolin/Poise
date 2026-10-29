@@ -1,4 +1,4 @@
-# Private release candidate
+# Poise v0.1.0-rc1
 
 The first release scope is training and simulation reproduction of four fixed
 Sharpa Wave baselines, with optional new-grasp generation. Deployment is
@@ -35,19 +35,19 @@ order. SHA256 identifies archives and every extracted file.
 PYTHONPATH=source python scripts/release/package_assets.py \
   --output outputs/releases/candidate/assets --bind
 
-# User: private/offline candidate directory downloaded or provided separately
-poise fetch-assets --setup hexhammer_palmup_fullpose_192k_v1 \
-  --source /path/to/release/assets --with-reference
+# User: download only this setup's required packages and reference checkpoint
+poise fetch-assets --setup hexhammer_palmup_fullpose_192k_v1 --with-reference
 ```
 
 The importer reuses correct existing files, skips checkpoints unless requested,
 verifies all missing dependencies before installation, and rejects conflicting
 files. Legacy complete tar bundles and data workspaces are still supported.
-Automatic HTTPS download works when the pinned index is explicitly published
-with archive URLs. URLs/status remain unset/private in this candidate; no fake
-public endpoint is advertised. A future GitHub Release uses the same repository
-as the source; large assets never enter Git history. Raw geometry/checkpoint
-files are accompanied by release NOTICE, licenses and the rights manifest.
+The pinned index points to the
+[v0.1.0-rc1 Release](https://github.com/junxiaolin/Poise/releases/tag/v0.1.0-rc1)
+in the source repository. Large assets never enter Git history. Raw geometry and
+checkpoint files are accompanied by NOTICE, licenses and the rights manifest.
+Use `--source` with downloaded files for offline or authenticated access; see
+[reproduction](../reproduction.md).
 
 ## Source boundary
 

@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "id": "manualconvex9_palmup_v1",
-  "status": "private_staging",
+  "status": "release_candidate",
   "description": "Fixed palm-up Sharpa Wave, nine objects with one shared policy",
   "hand": "sharpa_wave_right",
   "recipe": {
@@ -15,7 +15,7 @@
     "sha256": "d3b0a86835fdf59dd606adda68304f9f9c6d9778ebc93f919007d965cdc543ef"
   },
   "assets_manifest": "manifests/setups/manualconvex9_palmup_v1.json",
-  "assets_manifest_sha256": "9307d524f6333a973f70138ce9e57e2c85cda74a3029bc880f889029705cf64b",
+  "assets_manifest_sha256": "1b74bf8d801636ce025294e0a3e940f15bb593f4ef56c1982b095e1df75c8dbd",
   "objects": [
     {
       "id": "truncated_square_bipyramid_40mm_chamfered",
@@ -139,7 +139,7 @@
     "path": "data/checkpoints/manualconvex9_palmup_v1/model_23300.pt",
     "sha256": "9619a7c55a4b874c3b92b952ffdf83d589d216227c541b0d86cec58be55e5fdd",
     "iteration": 23300,
-    "status": "internal_candidate",
+    "status": "reference",
     "source_record": "docs/evaluation_runs/2026-09-21-convex9-model23300-vs19100/report.md"
   },
   "rollout": {

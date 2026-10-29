@@ -86,7 +86,7 @@ Before the cache builder, install the optional numeric joint-limit reference and
 Hex40 search inputs. This step does not download a reference policy:
 
 ```bash
-poise fetch-grasp-assets --source /path/to/release/assets
+poise fetch-grasp-assets
 python scripts/build_grasp_cache.py --config configs/grasp_hexprism40_smoke.json \
   --optimizer-python /path/to/lygra-poise/bin/python --output outputs/grasp_smoke
 ```

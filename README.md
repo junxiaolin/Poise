@@ -62,9 +62,8 @@ python -m pip install -r environments/train/requirements.txt
 python -m pip install --no-deps -e .
 poise check-env train --native
 
-# Import the release packages; shared files are reused and verified.
-poise fetch-assets --setup hexprism40_palmup_v1 \
-  --source /path/to/release/assets --with-reference
+# Download the required release packages; shared files are reused and verified.
+poise fetch-assets --setup hexprism40_palmup_v1 --with-reference
 poise check-assets --setup hexprism40_palmup_v1 --with-reference --deep
 
 # Visualize the reference policy; add --headless for no GUI.
@@ -76,6 +75,7 @@ poise train --setup hexprism40_palmup_v1 --profile smoke --output outputs/train/
 
 Output directories must be new. Use `custom` or `reference` for longer training;
 see the [reproduction guide](docs/reproduction.md) for hardware and launch settings.
+Assets and checkpoints are available in [Releases](https://github.com/junxiaolin/Poise/releases/tag/v0.1.0-rc1).
 
 ## Reference setups
 
