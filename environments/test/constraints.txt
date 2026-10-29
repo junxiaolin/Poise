@@ -1,0 +1,5 @@
+# Keep CPU CI on the tested Torch stack; optional dependencies must not replace it.
+torch==2.7.0+cpu
+torchvision==0.22.0+cpu
+tensordict==0.8.3
+numpy==1.26.0
